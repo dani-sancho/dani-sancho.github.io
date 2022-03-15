@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/fontawesome.min.css"/>
+
 </head>
 <body>
 
@@ -313,9 +314,14 @@
 
 
     <!-- CHANGE LANGUAGE CONTENT -->
-    <div id="languageSelector" class="window-background rearShadow p-3 pt-4 mainSectionText ">
-        <div id="languageContent" class="text-center">
-            <h3 class="translatable" data-translate="Actualmente estás viendo el CV en español ">You are currently viewing the CV in Spanish.</h3>
+    <div id="languageSelector" class="window-background rearShadow p-3 mainSectionText ">
+        <div id="languageContent" class="text-center row m-0 p-0">
+            <div class="col-11 pl-0">
+                <h3 class="translatable" data-translate="Actualmente estás viendo el CV en español ">You are currently viewing the CV in Spanish.</h3>
+            </div>
+            <div class="col-1 text-end text-danger cursor-pointer" onclick="closeLanguageWindow();">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
             <button class="btn btn-success rearShadow mt-1 me-1" href="right-resume.pdf" target="_blank" onclick="changeLanguageBtn();"><i class="fa-solid fa-language"></i> <span class="translatable" data-translate="Cambiar Idioma">Change Language</span></button>
             <input type="hidden" id="languageId" value="1"/>
             <input type="hidden" id="swalMessage1" value="Loading..." data-msg="Please wait..."/>
