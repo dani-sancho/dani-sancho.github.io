@@ -338,6 +338,10 @@ p {
   background-color: #37bc9b !important;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 body {
   background-color: #F5F7FA !important;
   font-family: "Fredoka" !important;
@@ -391,7 +395,7 @@ header {
   height: 250px;
 }
 .containerCv #headerCvResponsive {
-  height: 500px;
+  height: 550px;
 }
 .containerCv #headerTopInfo {
   position: absolute;
@@ -516,6 +520,8 @@ header {
   right: 10px;
   bottom: 10px;
   border-radius: 10px;
+  width: 70%;
+  max-width: 400px;
   -webkit-transition: opacity 1s, transform 1s;
   -moz-transition: opacity 1s, transform 1s;
   -ms-transition: opacity 1s, transform 1s;

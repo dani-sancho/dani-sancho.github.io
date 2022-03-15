@@ -313,3 +313,12 @@ function translateCV(){
         $("#languageId").val('1');
     }
 }
+
+/**
+ * Función sencilla para esconder la ventana de cambio de idioma
+ */
+function closeLanguageWindow(){
+
+    $("#languageSelector").css("transform","translate3d(100%, 0, 0) scale(0.2)");
+
+}
