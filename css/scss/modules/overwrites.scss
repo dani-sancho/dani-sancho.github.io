@@ -1,0 +1,27 @@
+//Encabezados
+h1{
+  font-size: $fontsize-5!important;
+}
+h2{
+  font-size: $fontsize-4!important;
+}
+h3{
+  font-size: $fontsize-3!important;
+}
+h4{
+  font-size: $fontsize-2!important;
+}
+h5{
+  font-size: $fontsize-1!important;
+}
+p{
+  font-size: $fontsize-2;
+}
+.btn-success{
+  background-color: $main-buttonsuccess!important;
+  border-color: $main-buttonsuccess!important;
+  &:hover{
+    background-color: $main-buttonsuccesshover!important;
+    border-color: $main-buttonsuccesshover!important;
+  }
+}

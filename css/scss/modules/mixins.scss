@@ -1,0 +1,19 @@
+@mixin transition($data...){
+  -webkit-transition: $data;
+  -moz-transition: $data;
+  -ms-transition: $data;
+  -o-transition: $data;
+  transition: $data;
+}
+@mixin transform($data...){
+  -webkit-transform: $data;
+  -moz-transform: $data;
+  -ms-transform: $data;
+  -o-transform: $data;
+  transform: $data;
+}
+@mixin smoothshadow($important: false){
+  -webkit-box-shadow: 2px 2px 6px 0 $main-shadow $important;
+  -moz-box-shadow: 2px 2px 6px 0 $main-shadow $important;
+  box-shadow: 2px 2px 6px 0 $main-shadow $important;
+}

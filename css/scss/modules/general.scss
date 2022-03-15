@@ -1,0 +1,178 @@
+body{
+  background-color: $main-bodybackground!important;
+  font-family: $fontfamilyprimary!important;
+  font-size: $fontsize-3;
+  font-weight: 400;
+  font-style: normal;
+  &.readyContent{
+    & .appearRightOnInit{
+      opacity: 1;
+      @include transform(translateZ(0));
+    }
+    & #professionalSkills{
+      & .progress-bar{
+        opacity: 1;
+        @include transform(translateZ(0) scale(1));
+      }
+    }
+    & #languageSelector{
+      opacity: 1;
+      @include transform(scale(1));
+    }
+  }
+}
+header{
+  background-color: $header-bodybackground;
+  color: $header-textcolor;
+  height: 65px;
+}
+.containerCv{
+  border-radius: 10px;
+  position: relative;
+  @include smoothshadow(!important);
+  & #headerCv,
+  & #headerCvResponsive{
+    background-color: $cv-topheaderbackground;
+    border-radius: 10px 10px 0 0 ;
+  }
+  & #headerCv{
+    height: 250px;
+  }
+  & #headerCvResponsive{
+    height: 500px;
+  }
+  & #headerTopInfo{
+    position: absolute;
+    top: 65px;
+    & #avatar_image{
+      border: 5px solid $cv-avatarborder;
+      border-radius: 2px;
+      @include smoothshadow(!important);
+    }
+    & #topInformation{
+      & #name,
+      & #skills{
+        color: $cv-topinfotext;
+        text-shadow: 1px 1px 2px $cv-topinfotextshadow;
+      }
+      & #action_buttons{
+        & button{
+          @include transition(transform .25s ease-in-out!important);
+          &:hover{
+            @include transform(translateY(-3px));
+          }
+        }
+      }
+    }
+  }
+  & .mainSectionText{
+    color: $cv-mainsectiontext;
+    & i{
+      position: relative;
+      top: -2px;
+    }
+  }
+  & #professionalSkills{
+    font-size: $fontsize-2;
+    & .progress-bar{
+      opacity: 0;
+      @include transform(translate3d(-100px,0,0) scale(.6));
+      @include transition(opacity 1s,transform 1s);
+    }
+  }
+  & .timeline{
+    & .timeline-linecontainer{
+      & .timeline-company{
+        text-align: center;
+        margin: 0 auto;
+        & .timeline-companyName,
+        & .timeline-companyDates{
+          margin: 0;
+          width: auto;
+          display: block;
+        }
+        & .timeline-companyBorder{
+          padding-top: 5px;
+          border-bottom: 2px solid $timeline-borders;
+          width: 100px;
+          margin: 0 auto;
+        }
+      }
+      & .timeline-linesummary{
+        border-left: 1px solid $timeline-borders;
+        padding-top: 10px;
+        margin-top: 10px;
+        position: relative;
+        &::before{
+          content: "";
+          display: block;
+          position: absolute;
+          left: -10px;
+          top: -1px;
+          height: 1px;
+          width: 20px;
+          background-color: $timeline-borders;
+        }
+        & .timeline-linecontent{
+          margin: 15px 0 15px 40px;
+          position: relative;
+          border-radius: 4px;
+          border: 1px solid $timeline-borders;
+          border-left: 2px solid $timeline-borderworker;
+          &::before{
+            content: "";
+            position: absolute;
+            background-color: $main-window;
+            border-radius: 10px;
+            width: 12px;
+            height: 12px;
+            top: 20px;
+            left: -48px;
+            border: 2px solid
+          }
+          &::after{
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 36px;
+            top: 25px;
+            left: -36px;
+          }
+        }
+      }
+    }
+    &.timelineworkcontainer{
+      & .timeline-linecontainer{
+        & .timeline-linesummary{
+          & .timeline-linecontent{
+            &::before{
+              border-color: $timeline-borderworker;
+            }
+            &::after{
+              background-color: $timeline-borderworker;
+            }
+          }
+
+        }
+
+      }
+
+    }
+  }
+}
+#languageSelector{
+  opacity: 0;
+  display: block;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 10px;
+  @include transition(opacity 1s,transform 1s);
+  @include transform(scale(.6));
+  & button{
+    @include transition(transform .25s ease-in-out!important);
+    &:hover{
+      @include transform(translateY(-3px));
+    }
+  }
+}

@@ -1,0 +1,90 @@
+/* Aquí irá el css que se vaya a reutilizar o sean clases globales */
+
+/* Clases par acontenedores */
+.sancho-container{
+  max-width: $size-container;
+  margin: 0 auto;
+}
+.vertical-middle{
+  vertical-align: middle;
+}
+
+/* Clases para textos */
+.primarytextsize{
+  font-size: $fontsize-4!important;
+}
+.secondarytextsize{
+  font-size: $fontsize-3!important;
+}
+.fontsize0{
+  font-size: 0;
+}
+.mainLink{
+  color: $main-linksdefaulttext;
+  text-transform: unset;
+  @include transition(color 0.5s);
+  &:hover,
+  &:focus{
+    color: $main-linkshovertext;
+  }
+  &:hover,
+  &:focus,
+  &:visited{
+    text-transform: unset;
+  }
+}
+.text-justify{
+  text-align: justify;
+}
+.word-break-all{
+  word-break: break-all;
+}
+
+/* Clases para efectos */
+.translateUp-effect{
+  @include transition(transform .25s ease-in-out);
+  @include transform(translateY(-3px));
+  &:hover{
+    @include transform(translateY(-3px));
+  }
+}
+.appearRightOnInit{
+  opacity: 0;
+  @include transform(translate3d(100px,0,0));
+  @include transition(opacity ease 1s, transform ease 1s);
+}
+@for $i from 1 through 15 {
+  [data-delay='#{$i}']{
+     transition-delay: #{$i/10}s!important;
+     -webkit-transition-delay: #{$i/10}s!important;
+     -mox-transition-delay: #{$i/10}s!important;
+     -ms-transition-delay: #{$i/10}s!important;
+     -o-transition-delay: #{$i/10}s!important;
+    /* transition-delay: #{$i}s!important;
+     -webkit-transition-delay: #{$i}s!important;
+     -mox-transition-delay: #{$i}s!important;
+     -ms-transition-delay: #{$i}s!important;
+     -o-transition-delay: #{$i}s!important;*/
+  }
+}
+
+
+/* Clases que aplican colores o estilos */
+.rearShadow{
+  @include smoothshadow(!important);
+  &:focus,
+  &:active,
+  &:visited,
+  &:target{
+    @include smoothshadow(!important);
+  }
+}
+.window-background{
+  background-color: $main-window;
+}
+.progressBlue{
+  background-color: $cv-progressblue!important;
+}
+.progressGreen{
+  background-color: $cv-progressgreen!important;
+}
