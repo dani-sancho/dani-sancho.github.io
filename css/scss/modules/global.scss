@@ -16,6 +16,9 @@
 .secondarytextsize{
   font-size: $fontsize-3!important;
 }
+.smalltextsize{
+  font-size: $fontsize-2!important;
+}
 .fontsize0{
   font-size: 0;
 }
@@ -42,11 +45,15 @@
 .font-bold{
   font-weight: 600;
 }
+.overflow-ellipsis{
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 
 /* Clases para efectos */
 .translateUp-effect{
-  @include transition(transform .25s ease-in-out);
-  @include transform(translateY(-3px));
+  @include transition(transform .25s ease-in-out!important);
+  @include transform(translateY(0));
   &:hover{
     @include transform(translateY(-3px));
   }
@@ -70,7 +77,9 @@
      -o-transition-delay: #{$i}s!important;*/
   }
 }
+.moveUp-effect{
 
+}
 
 /* Clases que aplican colores o estilos */
 .rearShadow{
