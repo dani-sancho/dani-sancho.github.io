@@ -37,7 +37,7 @@
     <!-- END HEADER MENU -->
 
     <!-- CV CONTENT -->
-    <section class="sancho-container px-3">
+    <section class="sancho-container px-3 mb-3">
 
         <div class="row m-0 containerCv">
             <div class="col-12 p-0">
@@ -64,7 +64,7 @@
                         <div id="action_buttons" class="appearRightOnInit" data-delay="2">
                             <button class="btn btn-light text-dark rearShadow mt-1 me-1" href="right-resume.pdf" target="_blank"><i class="fa-solid fa-download"></i> <span class="translatable" data-translate="Download CV">Descargar CV</span></button>
 
-                            <button class="btn btn-success rearShadow mt-1" href="#contact"><i class="fa-solid fa-comment"></i> <span class="translatable" data-translate="Contact Me">Contacto</span></button>
+                            <button class="btn btn-success rearShadow mt-1" onclick="goToSection('contactForm')"><i class="fa-solid fa-comment"></i> <span class="translatable" data-translate="Contact Me">Contacto</span></button>
                         </div>
                     </div>
                 </div>
@@ -326,7 +326,7 @@
 
             <hr class="d-print-none col-12 m-0">
 
-            <!-- WORK EXPERIENCE -->
+            <!-- EDUCATION -->
             <div class="col-12 window-background px-4 pt-4" id="education">
                 <div class="row m-0 p-0">
                     <div class="col-12">
@@ -335,7 +335,7 @@
                         </h2>
                     </div>
 
-                    <div class="timeline timelineworkcontainer col-12">
+                    <div class="timeline timelineeducationcontainer col-12">
                         <div class="timeline-linecontainer">
                             <div class="timeline-linesummary">
                                 <div class="timeline-linecontent window-background shadow-sm px-3 py-2">
@@ -360,9 +360,9 @@
                                     <h5 class="timeline-timelabel text-muted translatable" data-translate="January 2021 - December 2021">
                                         2015 - 2016
                                     </h5>
-                                    <p class="timeline-text translatable" data-translate="Learned how to assemble / disassemble computer, repair possible breakdowns,
+                                    <p class="timeline-text translatable" data-translate="Learned how to assemble and disassemble computer, repair possible breakdowns,
                                     remove malware, general control of the computer, office applications and command lines in Linux systems.">
-                                       Aprendido a montar / desmontar equipos informáticos, reparar posibles averías, desinfección de programas maliciosos, control general del ordenador, aplicaciones ofimáticas y líneas de comandos en sistemas Linux.
+                                       Aprendido a montar y desmontar equipos informáticos, reparar posibles averías, desinfección de programas maliciosos, control general del ordenador, aplicaciones ofimáticas y líneas de comandos en sistemas Linux.
                                     </p>
                                 </div>
                             </div>
@@ -371,14 +371,113 @@
                 </div>
 
             </div>
-            <!-- END WORK EXPERIENCE -->
+            <!-- END EDUCATION -->
+
+            <hr class="d-print-none col-12 m-0">
+
+            <!-- CONTACT FORM -->
+            <div class="col-12 window-background px-4 py-4" id="contactForm">
+                <div class="row m-0 p-0">
+                    <div class="col-12">
+                        <h2 class="mb-4 mainSectionText w-auto">
+                            <i class="fa-solid fa-comment secondarytextsize"></i> <span class="translatable" data-translate="Contact Me">Contacto</span>
+                        </h2>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-4 col-12 order-md-2 order-1">
+                                <div class="row overflow-hidden">
+                                    <div class="col-3 mb-3 secondarytextsize text-center">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 mb-3">
+                                        <h3 class="mainSectionText translatable" data-translate="Call Me">
+                                            Llámame
+                                        </h3>
+                                        <p class="smalltextsize mb-0 word-break-all">
+                                            +34 644743458
+                                        </p>
+                                    </div>
+                                    <div class="col-3 mb-3 secondarytextsize text-center">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <i class="fa-solid fa-envelope"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 mb-3">
+                                        <h3 class="mainSectionText">
+                                            Email
+                                        </h3>
+                                        <p class="smalltextsize mb-0 word-break-all">
+                                            d.sancho.23@hotmail.com
+                                        </p>
+                                    </div>
+                                    <div class="col-3 mb-3 secondarytextsize text-center">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 mb-3">
+                                        <h3 class="mainSectionText translatable" data-translate="Location">
+                                            Dónde vivo
+                                        </h3>
+                                        <p class="smalltextsize mb-0 word-break-all translatable" data-translate="Spain, Valencia.">
+                                            Valencia, España.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-12 order-md-1 order-2">
+                                <form action="https://formsubmit.co/d.sancho.23@hotmail.com" method="POST" class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="nombre@ejemplo.com" name="email" required="true">
+                                            <label for="inputEmail" class="translatable" data-translate="Contact E-Mail">Correo electrónico de contacto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="inputPhone" placeholder="654435..." name="telephone"  required="true">
+                                            <label for="inputPhone" class="translatable" data-translate="Contact Telephone">Teléfono de contacto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Escribir mensaje..." id="inputMessage" required="true" name="message"></textarea>
+                                            <label for="inputMessage" class="translatable" data-translate="Message">Mensaje</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-end pt-2">
+                                        <button class="btn btn-primary rearShadow mt-1 translateUp-effect"><i class="fa-solid fa-paper-plane"></i> <span class="translatable" data-translate="Send Mesasge">Enviar mensaje</span></button>
+                                    </div>
+                                    <!--<input type="hidden" name="_next" value="https://dani-sancho.github.io/#msgok" class="translatablevalue" data-translate="https://dani-sancho.github.io/#msgok2">-->
+                                    <input type="hidden" name="_next" value="http://localhost/webpages/cv/#msgok" class="translatablevalue" data-translate="http://localhost/webpages/cv/#msgok2">
+                                    <input type="hidden" name="_subject" value="Nuevo mensaje desde CV!">
+                                    <input type="hidden" id="swalMessageContact1" value="Hecho!" data-msg="Su mensaje de contacto ha sido enviado."/>
+                                    <input type="hidden" id="swalMessageContact2" value="Done!" data-msg="Your message has been sent."/>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- END CONTACT FORM -->
 
         </div>
 
 
     </section>
     <!-- END CV CONTENT -->
-
 
     <!-- CHANGE LANGUAGE CONTENT -->
     <div id="languageSelector" class="window-background rearShadow p-3 mainSectionText ">
@@ -389,13 +488,19 @@
             <div class="col-1 p-0 text-end text-danger cursor-pointer" onclick="closeLanguageWindow();">
                 <i class="fa-solid fa-circle-xmark"></i>
             </div>
-            <button class="btn btn-success rearShadow mt-1 me-1 col-12" href="right-resume.pdf" target="_blank" onclick="changeLanguageBtn();"><i class="fa-solid fa-language"></i> <span class="translatable" data-translate="Cambiar Idioma">Change Language</span></button>
+            <button class="btn btn-primary rearShadow mt-1 me-1 col-12 translateUp-effect" onclick="changeLanguageBtn();"><i class="fa-solid fa-language"></i> <span class="translatable" data-translate="Cambiar Idioma">Change Language</span></button>
             <input type="hidden" id="languageId" value="1"/>
             <input type="hidden" id="swalMessage1" value="Loading..." data-msg="Please wait..."/>
             <input type="hidden" id="swalMessage2" value="Cargando..." data-msg="Un momento, por favor..."/>
         </div>
     </div>
     <!-- END CHANGE LANGUAGE CONTENT -->
+
+    <!-- BUTTON SCROLL UP -->
+    <button class="btn btn-success rearShadow scroll-up primarytextsize translateUp-effect">
+        <i class="fas fa-long-arrow-alt-up"></i>
+    </button>
+    <!-- END BUTTON SCROLL UP -->
 
     <footer class="sancho-container">
 

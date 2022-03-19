@@ -25,3 +25,11 @@ p{
     border-color: $main-buttonsuccesshover!important;
   }
 }
+.btn-primary{
+  background-color: $main-buttonprimary!important;
+  border-color: $main-buttonprimary!important;
+  &:hover{
+    background-color: $main-buttonprimaryhover!important;
+    border-color: $main-buttonprimaryhover!important;
+  }
+}

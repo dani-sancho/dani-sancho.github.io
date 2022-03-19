@@ -128,7 +128,6 @@ header{
           position: relative;
           border-radius: 4px;
           border: 1px solid $timeline-borders;
-          border-left: 2px solid $timeline-borderworker;
           &::before{
             content: "";
             position: absolute;
@@ -155,6 +154,7 @@ header{
       & .timeline-linecontainer{
         & .timeline-linesummary{
           & .timeline-linecontent{
+            border-left: 2px solid $timeline-borderworker;
             &::before{
               border-color: $timeline-borderworker;
             }
@@ -168,23 +168,55 @@ header{
       }
 
     }
+    &.timelineeducationcontainer{
+      & .timeline-linecontainer{
+        & .timeline-linesummary{
+          & .timeline-linecontent{
+            border-left: 2px solid $timeline-bordereducation;
+            &::before{
+              border-color: $timeline-bordereducation;
+            }
+            &::after{
+              background-color: $timeline-bordereducation;
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+  & #contactForm{
+    & #inputMessage{
+      height: 100px;
+      resize: none;
+    }
   }
 }
+
 #languageSelector{
   opacity: 0;
   display: block;
   position: fixed;
   right: 10px;
-  bottom: 10px;
+  bottom: 100px;
   border-radius: 10px;
   width: 70%;
   max-width: 400px;
   @include transition(opacity 1s,transform 1s);
   @include transform(scale(.6));
-  & button{
-    @include transition(transform .25s ease-in-out!important);
-    &:hover{
-      @include transform(translateY(-3px));
-    }
+}
+
+.scroll-up{
+  position: fixed;
+  right: 10px;
+  bottom: -20%;
+  opacity: 0.8;
+  padding: 15px 10px;
+  border-radius: 2px;
+  z-index: 1;
+  @include transition(0.4s!important);
+  &.showbutton{
+    bottom: 25px;
   }
 }

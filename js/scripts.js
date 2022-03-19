@@ -2,6 +2,12 @@ window.onload = function() {
     init();
 };
 
+//Funciones on scroll de la página
+window.addEventListener('scroll', function(){
+    //Comprueba y muestra/oculta el botón de scroll
+    checkifbuttonup();
+});
+
 /**
  * Funciones onload de la web
  */
@@ -15,6 +21,42 @@ function init(){
 
     //Seteamos la edad a partir de la fecha de nacimiento
     $("#age").text(calculateAge());
+
+    //Comprobamos si tenemos hash en la url
+    if(location.hash != ""){
+
+        //Comprobamos si el hash es debido al mensaje de contacto enviado
+        if (location.hash == "#msgok" || location.hash == "#msgok2"){
+
+            //Instanciamos las variables vacías
+            var titleSwal = '';
+            var msgSwal = '';
+
+            //Comprobamos qué idioma tenemos que sacar para el mensaje
+            if (location.hash == "#msgok"){
+                //Mensaje español
+                titleSwal = $("#swalMessageContact1").val();
+                msgSwal = $("#swalMessageContact1").data("msg");
+            }else{
+                //Mensaje inglés
+                titleSwal = $("#swalMessageContact2").val();
+                msgSwal = $("#swalMessageContact2").data("msg");
+            }
+
+            //Lanzamos alerta de ok
+            Swal.fire({
+                icon: 'success',
+                title: titleSwal,
+                text: msgSwal,
+                confirmButtonColor: '#37BC9B',
+                confirmButtonText: '<i class="far fa-check-circle"></i> Ok'
+            });
+
+        }
+
+        //Eliminamos el hash de la url sin recargar
+        removeHashUrl();
+    }
 }
 /**
  * Esta función cargará las partículas, tanto desktop como responsive.
@@ -306,6 +348,15 @@ function translateCV(){
         $(this).data('translate',lastTranslate);
     });
 
+    //Buscamos todos los values a traducir
+    $(".translatablevalue").each(function() {
+        //Los traducimos uno a uno
+        var lastTranslate = $(this).val();
+        $(this).val($(this).data('translate'));
+        //Y cambiamos su data para poder traducirlo a la inversa
+        $(this).data('translate',lastTranslate);
+    });
+
     //Seteamos Id del nuevo lengauje
     if ($("#languageId").val() == '1'){
         $("#languageId").val('2');
@@ -319,6 +370,66 @@ function translateCV(){
  */
 function closeLanguageWindow(){
 
+    //Transformamos mediante css la ventana, escondiéndola fuera de la ventana
     $("#languageSelector").css("transform","translate3d(100%, 0, 0) scale(0.2)");
 
 }
+
+/**
+ * Función para eliminar el hash de mensaje enviado de la url,
+ * sin necesidad de recargar la web.
+ */
+function removeHashUrl(){
+
+    //Quitamos el hash de mensaje enviado de la url, sin recargar la web.
+    history.pushState({}, null, window.location.toString().substring(0,window.location.toString().indexOf(location.hash)));
+
+}
+
+/**
+ * Comprobamos si hay que mostrar u ocultar el botón
+ * de scroll up
+ */
+function checkifbuttonup(){
+    if($(document).scrollTop() > $('header').height()){
+        $(".scroll-up").removeClass("hiddenbutton");
+        $(".scroll-up").addClass("showbutton");
+    }else{
+        $(".scroll-up").removeClass("showbutton");
+        $(".scroll-up").addClass("hiddenbutton");
+    }
+}
+
+/**
+ * Función para hacer scroll a la sección indicada
+ * @param section - id de la sección
+ */
+function goToSection(section){
+
+    if(!$("body").hasClass("going-up")) {
+
+        //Movemos al usuario al div indicado
+        $('html, body').animate({
+            scrollTop: $("#"+section).offset().top - 70
+        }, 500);
+
+    }
+}
+
+/**
+ * Evento para el botón de ir arriba
+ */
+$(".scroll-up").on("click",function(){
+    if($(document).scrollTop() > $('header').height() && !$("body").hasClass("going-up")) {
+        $("body").addClass("going-up");
+        var scope = this;
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        $(scope).removeClass("showbutton");
+        $(scope).addClass("hiddenbutton");
+        setTimeout(function () {
+            $("body").removeClass("going-up");
+        },500);
+    }
+});
