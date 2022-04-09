@@ -10,8 +10,11 @@ $main-buttonprimary: #4A89DC;
 $main-buttonprimaryhover: #2B77DD;
 
 //Colores header
-$header-bodybackground: #F5F7FA;
+$header-bodybackground: #FFFFFF;
 $header-textcolor: #434A54;
+$header-bordercolor: #BFC1C4;
+$header-hoveroffset: #F0F0F0;
+$header-activeoffset: #37BC9B;
 
 //Colores CV
 $cv-topheaderbackground: #68A3F0;
@@ -26,3 +29,6 @@ $cv-progressgreen: #37bc9b;
 $timeline-borders: #D2D2D2;
 $timeline-borderworker: #37BC9B;
 $timeline-bordereducation: #4A89DC;
+
+//Colores footer
+$footer-borderseparator: #D2D2D2;
