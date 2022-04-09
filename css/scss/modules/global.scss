@@ -28,6 +28,7 @@
 .mainLink{
   color: $main-linksdefaulttext;
   text-transform: unset;
+  text-decoration: unset!important;
   @include transition(color 0.5s);
   &:hover,
   &:focus{
@@ -37,6 +38,7 @@
   &:focus,
   &:visited{
     text-transform: unset;
+    text-decoration: unset!important;
   }
 }
 .text-justify{
