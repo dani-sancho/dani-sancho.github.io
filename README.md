@@ -2,6 +2,8 @@
 Personal CV in a responsive web format.
 It has a Spanish format with the possibility of translating all the texts into English, a contact form and a responsive menu.
 
+Made with HTML, SCSS, JS and some libraries such as fontawesome, boostrap, SweetAlert and tsParticles.
+
 Desktop window for translating into English - Spanish:
 
 ![imagen](https://user-images.githubusercontent.com/13603337/162589995-0f3b4b9d-cda8-4e16-8870-4ae257d01077.png)
