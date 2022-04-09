@@ -80,6 +80,7 @@ p {
 .mainLink {
   color: #434A54;
   text-transform: unset;
+  text-decoration: unset !important;
   -webkit-transition: color 0.5s;
   -moz-transition: color 0.5s;
   -ms-transition: color 0.5s;
@@ -91,6 +92,7 @@ p {
 }
 .mainLink:hover, .mainLink:focus, .mainLink:visited {
   text-transform: unset;
+  text-decoration: unset !important;
 }
 
 .text-justify {

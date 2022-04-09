@@ -464,9 +464,13 @@ function toggleMenuResponsive(){
         let lastIcon = document.getElementById("iconHamburger").classList.toString();
         $("#iconHamburger").removeClass().addClass($("#iconHamburger").attr("data-altericon")).attr("data-altericon",lastIcon).data("altericon",lastIcon);
 
+        var openedHeight = "211px";
+
+        if (window.innerWidth <= 575) openedHeight = "316px";
+
         //Si el menú está ahora abierto, mostramos el div, sino lo ocultamos.
         if ($("body").hasClass("openedMenu"))
-            $("#submenuResponsive").animate({ opacity: "1" }, 100 ).animate({ height: "211px" }, 300 )
+            $("#submenuResponsive").animate({ opacity: "1" }, 100 ).animate({ height: openedHeight }, 300 )
         else
             $("#submenuResponsive").animate({ height: "0px" }, 300 ).animate({ opacity: "0" }, 100 );
 
