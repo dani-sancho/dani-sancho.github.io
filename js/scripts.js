@@ -505,6 +505,15 @@ function CloseMenuResponsive(force = "false"){
     }
 }
 
+function downloadCV (){
+    if ($("#languageId").val() == '1'){
+        var url = "assets/Daniel_Sancho_Jara_CV_ESP.pdf";
+    }else{
+        var url = "assets/Daniel_Sancho_Jara_CV_EN.pdf";
+    }
+    window.open(url, '_blank').focus();
+}
+
 /**
  * Evento para el botón de ir arriba
  */
