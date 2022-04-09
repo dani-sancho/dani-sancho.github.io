@@ -1,9 +1,13 @@
+html{
+  overflow-x: hidden;
+}
 body{
   background-color: $main-bodybackground!important;
   font-family: $fontfamilyprimary!important;
   font-size: $fontsize-3;
   font-weight: 400;
   font-style: normal;
+   overflow-x: hidden;
   &.readyContent{
     & .appearRightOnInit{
       opacity: 1;
@@ -22,18 +26,81 @@ body{
   }
 }
 header{
-  background-color: $header-bodybackground;
   color: $header-textcolor;
   height: 65px;
+  & #headerContainer{
+    height: 65px;
+    position: fixed;
+    background: $header-bodybackground;
+    max-width: 1028px;
+    z-index: 3;
+    border-bottom: 1px solid $header-bordercolor;
+    width: 100%;
+    @include smoothshadow(!important);
+    & .offsetScrollNav{
+      cursor: pointer;
+      background-color: transparent;
+      @include transition(background 0.25s ease-in-out, color 0.25s ease-in-out);
+      &.activeOffset{
+        color: $header-activeoffset;
+        font-weight: 500;
+        cursor: not-allowed;
+      }
+      &:hover{
+        background-color: $header-hoveroffset;
+        color: $header-activeoffset;
+      }
+    }
+    #iconHamburgerContainer{
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+    &::before{
+      content: "";
+      width: 75px;
+      height: 100%;
+      position: absolute;
+      top: -17px;
+      left: -30px;
+      background-color: $header-bodybackground;
+      @include transform(rotate(58deg));
+      overflow: hidden;
+      border-bottom: 1px solid $header-bordercolor;
+      z-index: -1;
+    }
+    &::after{
+      content: "";
+      width: 75px;
+      height: 100%;
+      position: absolute;
+      top: -17px;
+      right: -30px;
+      background-color: $header-bodybackground;
+      @include transform(rotate(-58deg));
+      overflow: hidden;
+      border-bottom: 1px solid $header-bordercolor;
+      z-index: -1;
+      -webkit-box-shadow: 5px 3px 6px -1px $main-shadow;
+      -moz-box-shadow: 5px 3px 6px -1px $main-shadow;
+      box-shadow: 5px 3px 6px -1px $main-shadow;
+    }
+  }
 }
 .containerCv{
-  border-radius: 10px;
   position: relative;
+  @include borderradius(10px);
   @include smoothshadow(!important);
+  &>div{
+    &:last-child{
+      @include borderradius(10px);
+    }
+  }
   & #headerCv,
   & #headerCvResponsive{
     background-color: $cv-topheaderbackground;
-    border-radius: 10px 10px 0 0 ;
+    @include borderradius(10px 10px 0 0);
   }
   & #headerCv{
     height: 250px;
@@ -46,7 +113,7 @@ header{
     top: 65px;
     & #avatar_image{
       border: 5px solid $cv-avatarborder;
-      border-radius: 2px;
+      @include borderradius(2px);
       @include smoothshadow(!important);
     }
     & #topInformation{
@@ -63,13 +130,6 @@ header{
           }
         }
       }
-    }
-  }
-  & .mainSectionText{
-    color: $cv-mainsectiontext;
-    & i{
-      position: relative;
-      top: -2px;
     }
   }
   & #professionalSkills{
@@ -126,18 +186,18 @@ header{
         & .timeline-linecontent{
           margin: 15px 0 15px 40px;
           position: relative;
-          border-radius: 4px;
+          @include borderradius(4px);
           border: 1px solid $timeline-borders;
           &::before{
             content: "";
             position: absolute;
             background-color: $main-window;
-            border-radius: 10px;
             width: 12px;
             height: 12px;
             top: 20px;
             left: -48px;
-            border: 2px solid
+            border: 2px solid;
+            @include borderradius(10px);
           }
           &::after{
             content: "";
@@ -187,10 +247,18 @@ header{
     }
   }
   & #contactForm{
+    @include borderradius(10px);
     & #inputMessage{
       height: 100px;
       resize: none;
     }
+  }
+}
+.mainSectionText{
+  color: $cv-mainsectiontext;
+  & i{
+    position: relative;
+    top: -2px;
   }
 }
 
@@ -200,9 +268,9 @@ header{
   position: fixed;
   right: 10px;
   bottom: 100px;
-  border-radius: 10px;
   width: 70%;
   max-width: 400px;
+  @include borderradius(10px);
   @include transition(opacity 1s,transform 1s);
   @include transform(scale(.6));
 }
@@ -213,10 +281,40 @@ header{
   bottom: -20%;
   opacity: 0.8;
   padding: 15px 10px;
-  border-radius: 2px;
+  @include borderradius(2px);
   z-index: 1;
   @include transition(0.4s!important);
   &.showbutton{
     bottom: 25px;
+  }
+}
+#background-fallback-block{
+  position: fixed !important;
+  z-index: 2;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+  @include transition(opacity 0.15s)
+}
+footer{
+  height: 200px;
+  position: relative;
+  z-index: -1;
+  &::before{
+    content: "";
+    max-width: 330px;
+    width: 100%;
+    background-color: $footer-borderseparator;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 }

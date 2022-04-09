@@ -6,7 +6,13 @@ window.onload = function() {
 window.addEventListener('scroll', function(){
     //Comprueba y muestra/oculta el botón de scroll
     checkifbuttonup();
+    checkScrollSections();
 });
+
+//Funciones on resize de la página
+window.addEventListener('resize', function(event) {
+    CloseMenuResponsive("true");
+}, true);
 
 /**
  * Funciones onload de la web
@@ -401,6 +407,32 @@ function checkifbuttonup(){
 }
 
 /**
+ * Comprobamos si hay que mostrar u ocultar el botón
+ * de scroll up
+ */
+function checkScrollSections(){
+
+    //Obtenemos el scroll Y de la web
+    let scrollY = window.pageYOffset;
+
+    //iteramos sobre cada section
+    $('section').each(function(i, obj) {
+        let offsetTop = obj.offsetTop - 70;
+        let offsetHeight = obj.offsetHeight;
+        let sectionId = obj.getAttribute('id');
+
+        //Comprobamos si tenemos el scroll en este section
+        if (scrollY > offsetTop && scrollY <= offsetTop + offsetHeight) {
+            //Tenemos el scroll aquí, activamos el nav link
+            $("#navFor"+sectionId).addClass("activeOffset");
+        } else {
+            //No tenemos el scroll aquí, desactivamos el nav link
+            $("#navFor"+sectionId).removeClass("activeOffset");
+        }
+    });
+}
+
+/**
  * Función para hacer scroll a la sección indicada
  * @param section - id de la sección
  */
@@ -413,6 +445,63 @@ function goToSection(section){
             scrollTop: $("#"+section).offset().top - 70
         }, 500);
 
+    }
+}
+
+/**
+ * Función que comprobará si el menú responsive está abierto,
+ * para cerrarlo, o si está cerrado para abrirlo.
+ */
+function toggleMenuResponsive(){
+    //Si no se está abriendo o cerrando el menú, ejecutamos
+    if (!$("body").hasClass("openingMenu")){
+        //Activamos o desactivamos la clase del menú responsive según corresponda.
+        $("body").toggleClass("openedMenu");
+        //Añadimos clase para poner a cargar el body, y que no se pueda clicar dos veces seguidas.
+        $("body").addClass("openingMenu");
+
+        //Cambiamos el icono del botón, X o barras, según convenga.
+        let lastIcon = document.getElementById("iconHamburger").classList.toString();
+        $("#iconHamburger").removeClass().addClass($("#iconHamburger").attr("data-altericon")).attr("data-altericon",lastIcon).data("altericon",lastIcon);
+
+        //Si el menú está ahora abierto, mostramos el div, sino lo ocultamos.
+        if ($("body").hasClass("openedMenu"))
+            $("#submenuResponsive").animate({ opacity: "1" }, 100 ).animate({ height: "211px" }, 300 )
+        else
+            $("#submenuResponsive").animate({ height: "0px" }, 300 ).animate({ opacity: "0" }, 100 );
+
+        //Esperamos 500ms para quitar el loading interno del body para poder usar el botón otra vez
+        setTimeout(function(){
+            $("body").removeClass("openingMenu");
+        },500)
+    }
+}
+
+/**
+ * Función para obligar al menú responsive a cerrarse.
+ */
+function CloseMenuResponsive(force = "false"){
+    //Instanciamos variable de ejecución del script a true
+    var canExecute = true;
+    //Si no se está forznado a ejecutar al función
+    if(force == "false"){
+        //Comprobamos si el menú está cargando, para dejar ejecutar la función, o no
+        if ($("body").hasClass("openingMenu")){
+            canExecute = false;
+        }
+    }
+
+    //Si no se está abriendo o cerrando el menú, y se permite ejecutar, ejecutamos.
+    if ($("body").hasClass("openedMenu") && canExecute == true){
+        //Desactivamos el menú
+        $("body").removeClass("openedMenu");
+
+        //Cambiamos el icono del botón, de X a barras.
+        let lastIcon = document.getElementById("iconHamburger").classList.toString();
+        $("#iconHamburger").removeClass().addClass($("#iconHamburger").attr("data-altericon")).attr("data-altericon",lastIcon).data("altericon",lastIcon);
+
+        //Ocultamos el menú
+        $("#submenuResponsive").animate({ height: "0px" }, 300 ).animate({ opacity: "0" }, 100 );
     }
 }
 
@@ -431,5 +520,17 @@ $(".scroll-up").on("click",function(){
         setTimeout(function () {
             $("body").removeClass("going-up");
         },500);
+    }
+});
+
+/**
+ * Evento on click para ir al elementu del menú
+ * clicado, haciendo una animación de scroll
+ */
+$(".offsetScrollNav").on("click",function(){
+    //Si este elemento no está activo ya
+    if (!$(this).hasClass("activeOffset")){
+        //Hacemos scroll a ese elemento
+        goToSection($(this).prop("id").replace("navFor",""));
     }
 });

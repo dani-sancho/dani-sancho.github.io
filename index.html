@@ -10,44 +10,142 @@
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-
+    <div id="background-fallback-block" onclick="CloseMenuResponsive('false');"></div>
     <!-- HEADER MENU -->
-    <header class="sancho-container px-3">
-        <div class="d-table w-100 h-100">
-            <div class="d-table-cell vertical-middle">
+    <header class="sancho-container px-lg-3 mb-1">
+        <div class="d-table" id="headerContainer">
+            <div class="d-table-cell vertical-middle px-3">
                 <div class="row m-0">
-                    <div class="col-8">
-                        <h3 class="m-0">
-                            Daniel Sancho Jara
-                        </h3>
+                    <div class="col-md-2 col-3">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell vertical-middle">
+                                <h3 class="m-0">
+                                    Daniel
+                                </h3>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-4 text-end fontsize0">
-                        <a class="mainLink me-4" href="https://www.linkedin.com/in/daniel-sancho-jara/" target="_blank">
-                            <i class="fa-brands fa-linkedin secondarytextsize"></i>
-                        </a>
-                        <a class="mainLink" href="https://github.com/dani-sancho/" target="_blank">
-                            <i class="fa-brands fa-github secondarytextsize"></i>
-                        </a>
+                    <div class="col-md-8 col-7" id="submenuResponsive">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell vertical-middle">
+                                <div class="row m-0 p-0">
+                                    <div class="col-md-3 col-4 text-center py-3 offsetScrollNav activeOffset" id="navForHome">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <div class="d-md-none d-block">
+                                                    <i class="fa-solid fa-house"></i>
+                                                </div>
+                                                <div>
+                                                    Home
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-4 text-center py-3 offsetScrollNav" id="navForaboutMe">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <div class="d-md-none d-block">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </div>
+                                                <div class="translatable" data-translate="About">
+                                                    Sobre Mí
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-4 text-center py-3 offsetScrollNav" id="navForprofessionalSkills">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <div class="d-md-none d-block">
+                                                    <i class="fa-solid fa-user-gear"></i>
+                                                </div>
+                                                <div class="translatable" data-translate="Skills">
+                                                    Habilidades
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-4 text-center py-3 d-md-none offsetScrollNav" id="navForworkExperience">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <div class="d-md-none d-block">
+                                                    <i class="fa-solid fa-briefcase"></i>
+                                                </div>
+                                                <div class="translatable" data-translate="Work Experience">
+                                                    Experiencia laboral
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-4 text-center py-3 d-md-none offsetScrollNav" id="navForeducation">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <div class="d-md-none d-block">
+                                                    <i class="fa-solid fa-graduation-cap"></i>
+                                                </div>
+                                                <div class="translatable" data-translate="Education">
+                                                    Estudios
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-4 text-center py-3 offsetScrollNav" id="navForcontactForm">
+                                        <div class="d-table h-100 w-100">
+                                            <div class="d-table-cell vertical-middle">
+                                                <div class="d-md-none d-block">
+                                                    <i class="fa-solid fa-message"></i>
+                                                </div>
+                                                <div class="translatable" data-translate="Contact">
+                                                    Contacto
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 d-md-none text-center cursor-pointer secondarytextsize" onclick="changeLanguageBtn();">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell vertical-middle">
+                                <i class="fa-solid fa-language"></i> <span class="translatable" data-translate="Idioma">Language</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-4 text-end fontsize0">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell vertical-middle">
+                                <a class="mainLink me-4" href="https://www.linkedin.com/in/daniel-sancho-jara/" target="_blank">
+                                    <i class="fa-brands fa-linkedin secondarytextsize"></i>
+                                </a>
+                                <a class="mainLink me-4" href="https://github.com/dani-sancho/" target="_blank">
+                                    <i class="fa-brands fa-github secondarytextsize"></i>
+                                </a>
+                                <div id="iconHamburgerContainer" class="mainLink d-md-none" onclick="toggleMenuResponsive();">
+                                    <i class="fa-solid fa-bars secondarytextsize" data-altericon="fa-solid fa-times secondarytextsize" id="iconHamburger"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </header>
     <!-- END HEADER MENU -->
 
     <!-- CV CONTENT -->
-    <section class="sancho-container px-3 mb-3">
+    <main class="sancho-container px-3 mb-3">
 
         <div class="row m-0 containerCv">
-            <div class="col-12 p-0">
+            <section class="col-12 p-0" id="Home">
                 <div id="headerCv" class="d-md-block d-none ">
                     <!-- POLYGON BACKGROUND CONTENT -->
                 </div>
                 <div id="headerCvResponsive" class="d-md-none">
                     <!-- POLYGON RESPONSIVE BACKGROUND CONTENT -->
                 </div>
-            </div>
+            </section>
             <!-- NAME & DESCRIPTION -->
             <div class="col-12 p-0" id="headerTopInfo">
                 <div class="row m-0 px-4">
@@ -73,7 +171,7 @@
 
 
             <!-- ABOUT ME  -->
-            <div class="col-12 window-background p-0" id="aboutMe">
+            <section class="col-12 window-background p-0" id="aboutMe">
 
                 <div class="row m-0 px-4 pt-5">
 
@@ -167,13 +265,13 @@
 
                 </div>
 
-            </div>
+            </section>
             <!-- END ABOUT ME  -->
 
             <hr class="d-print-none col-12 m-0">
 
             <!-- PROFESSIONAL SKILLS -->
-            <div class="col-12 window-background px-4 py-4" id="professionalSkills">
+            <section class="col-12 window-background px-4 py-4" id="professionalSkills">
                 <div class="row m-0 p-0">
                     <div class="col-12">
                         <h2 class="mb-3 mainSectionText">
@@ -257,13 +355,13 @@
                     </div>
                 </div>
 
-            </div>
+            </section>
             <!-- END PROFESSIONAL SKILLS -->
 
             <hr class="d-print-none col-12 m-0">
 
             <!-- WORK EXPERIENCE -->
-            <div class="col-12 window-background px-4 pt-4" id="workExperience">
+            <section class="col-12 window-background px-4 pt-4" id="workExperience">
                 <div class="row m-0 p-0">
                     <div class="col-12">
                         <h2 class="mb-3 mainSectionText w-auto">
@@ -321,17 +419,17 @@
                     </div>
                 </div>
 
-            </div>
+            </section>
             <!-- END WORK EXPERIENCE -->
 
             <hr class="d-print-none col-12 m-0">
 
             <!-- EDUCATION -->
-            <div class="col-12 window-background px-4 pt-4" id="education">
+            <section class="col-12 window-background px-4 pt-4" id="education">
                 <div class="row m-0 p-0">
                     <div class="col-12">
                         <h2 class="mb-3 mainSectionText w-auto">
-                            <i class="fa-solid fa-briefcase secondarytextsize"></i> <span class="translatable" data-translate="Education">Estudios</span>
+                            <i class="fa-solid fa-graduation-cap secondarytextsize"></i> <span class="translatable" data-translate="Education">Estudios</span>
                         </h2>
                     </div>
 
@@ -370,17 +468,17 @@
                     </div>
                 </div>
 
-            </div>
+            </section>
             <!-- END EDUCATION -->
 
             <hr class="d-print-none col-12 m-0">
 
             <!-- CONTACT FORM -->
-            <div class="col-12 window-background px-4 py-4" id="contactForm">
+            <section class="col-12 window-background px-4 py-4" id="contactForm">
                 <div class="row m-0 p-0">
                     <div class="col-12">
                         <h2 class="mb-4 mainSectionText w-auto">
-                            <i class="fa-solid fa-comment secondarytextsize"></i> <span class="translatable" data-translate="Contact Me">Contacto</span>
+                            <i class="fa-solid fa-message secondarytextsize"></i> <span class="translatable" data-translate="Contact Me">Contacto</span>
                         </h2>
                     </div>
 
@@ -469,17 +567,17 @@
                     </div>
                 </div>
 
-            </div>
+            </section>
             <!-- END CONTACT FORM -->
 
         </div>
 
 
-    </section>
+    </main>
     <!-- END CV CONTENT -->
 
     <!-- CHANGE LANGUAGE CONTENT -->
-    <div id="languageSelector" class="window-background rearShadow p-3 mainSectionText ">
+    <div id="languageSelector" class="window-background rearShadow p-3 mainSectionText d-md-block d-none">
         <div id="languageContent" class="text-center row m-0 p-0">
             <div class="col-11 col-10 ps-0">
                 <h3 class="translatable" data-translate="Actualmente estás viendo el CV en inglés.">You are currently viewing the CV in Spanish.</h3>
@@ -501,7 +599,32 @@
     </button>
     <!-- END BUTTON SCROLL UP -->
 
-    <footer class="sancho-container">
+    <footer class="sancho-container mt-5">
+        <div class="d-table h-100 w-100">
+            <div class="d-table-cell vertical-middle"><div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="mainSectionText">Daniel Sancho Jara</h2>
+                    </div>
+                    <div class="col-12 text-center fontsize0 mt-2">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell vertical-middle">
+                                <a class="mainLink me-4" href="https://www.linkedin.com/in/daniel-sancho-jara/" target="_blank">
+                                    <i class="fa-brands fa-linkedin secondarytextsize mainSectionText"></i>
+                                </a>
+                                <a class="mainLink me-4" href="https://github.com/dani-sancho/" target="_blank">
+                                    <i class="fa-brands fa-github secondarytextsize mainSectionText"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center mt-3">
+                        <div class="text-muted smallesttextsize">
+                            &copy; Daniel. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </footer>
 

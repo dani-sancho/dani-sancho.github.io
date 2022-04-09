@@ -17,3 +17,10 @@
   -moz-box-shadow: 2px 2px 6px 0 $main-shadow $important;
   box-shadow: 2px 2px 6px 0 $main-shadow $important;
 }
+@mixin borderradius($data...){
+  -webkit-border-radius: $data;
+  -moz-border-radius: $data;
+  -ms-border-radius: $data;
+  -o-border-radius: $data;
+  border-radius: $data;
+}
