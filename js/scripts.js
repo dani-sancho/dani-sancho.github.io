@@ -407,8 +407,8 @@ function checkifbuttonup(){
 }
 
 /**
- * Comprobamos si hay que mostrar u ocultar el botón
- * de scroll up
+ * Función que irá seteando como activo a los elementos del menú
+ * cuando el scroll alcance los sections del cv
  */
 function checkScrollSections(){
 
