@@ -42,6 +42,9 @@ header{
       cursor: pointer;
       background-color: transparent;
       @include transition(background 0.25s ease-in-out, color 0.25s ease-in-out);
+      & .nameOffset{
+        height: 48px;
+      }
       &.activeOffset{
         color: $header-activeoffset;
         font-weight: 500;

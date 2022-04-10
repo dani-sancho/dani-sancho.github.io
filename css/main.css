@@ -497,6 +497,9 @@ header #headerContainer .offsetScrollNav {
   -o-transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 }
+header #headerContainer .offsetScrollNav .nameOffset {
+  height: 48px;
+}
 header #headerContainer .offsetScrollNav.activeOffset {
   color: #37BC9B;
   font-weight: 500;
