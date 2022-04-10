@@ -424,6 +424,16 @@ p {
     margin-bottom: 65px !important;
   }
 }
+@media (max-width: 575px) {
+  .containerCv #headerTopInfo {
+    top: 35px !important;
+  }
+}
+@media (max-width: 327px) {
+  .containerCv #headerTopInfo {
+    top: 15px !important;
+  }
+}
 html {
   overflow-x: hidden;
 }
