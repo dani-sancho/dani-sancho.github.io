@@ -54,3 +54,17 @@
     margin-bottom: 65px!important
   }
 }
+@media (max-width: $size-lowestmobile-down){
+  .containerCv{
+    & #headerTopInfo{
+      top: 35px!important;
+    }
+  }
+}
+@media (max-width: $size-tinymobile-down){
+  .containerCv{
+    & #headerTopInfo{
+      top: 15px!important;
+    }
+  }
+}
