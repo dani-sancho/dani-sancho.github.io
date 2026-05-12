@@ -1,0 +1,7 @@
+:host {
+  @apply flex flex-col min-h-screen;
+}
+
+.app-content {
+  @apply flex-1;
+}

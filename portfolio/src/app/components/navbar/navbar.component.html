@@ -1,0 +1,86 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
+  role="navigation" aria-label="Main navigation">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14">
+    <a routerLink="/" class="text-xl font-bold text-indigo-500" (click)="closeMenu()">DS</a>
+
+    <button class="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500" (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen()" aria-controls="nav-menu" aria-label="Toggle navigation">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        @if (isMenuOpen()) {
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        } @else {
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        }
+      </svg>
+    </button>
+
+    <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
+      <li><a routerLink="/" routerLinkActive="text-indigo-500" [routerLinkActiveOptions]="{exact: true}"
+          class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home') }}</a></li>
+      <li><a routerLink="/projects" routerLinkActive="text-indigo-500"
+          class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.projects') }}</a>
+      </li>
+      <li><a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+          i18n.t('nav.contact') }}</a></li>
+    </ul>
+
+    <div class="hidden md:flex items-center gap-2">
+      <app-button variant="icon" (onClick)="theme.toggleTheme()">
+        @if (theme.isDark()) {
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+          </path>
+        </svg>
+        } @else {
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+        }
+      </app-button>
+
+      <app-button variant="icon" (onClick)="i18n.toggleLanguage()">
+        <span class="text-xs font-bold">{{ i18n.currentLanguage() | uppercase }}</span>
+      </app-button>
+    </div>
+  </div>
+
+  @if (isMenuOpen()) {
+  <div class="md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+    <ul class="px-4 py-3 space-y-2">
+      <li><a routerLink="/" (click)="closeMenu()"
+          class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home')
+          }}</a></li>
+      <li><a routerLink="/projects" (click)="closeMenu()"
+          class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+          i18n.t('nav.projects') }}</a></li>
+      <li><a href="#contact" (click)="closeMenu()"
+          class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.contact')
+          }}</a></li>
+    </ul>
+    <div class="px-4 pb-3 flex gap-2">
+      <app-button variant="icon" (onClick)="theme.toggleTheme(); closeMenu()" class="flex-1" [isFullWidth]="true">
+        @if (theme.isDark()) {
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+          </path>
+        </svg>
+        } @else {
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+        }
+        &nbsp; {{ theme.isDark() ? 'Light' : 'Dark' }}
+      </app-button>
+
+      <app-button variant="icon" (onClick)="i18n.toggleLanguage()" class="flex-1" [isFullWidth]="true">
+        <span class="text-xs font-bold">{{ i18n.currentLanguage() | uppercase }}</span>
+      </app-button>
+    </div>
+  </div>
+  }
+</nav>
