@@ -27,6 +27,7 @@ export class CvComponent {
 
   name = 'Daniel Sancho';
   email = 'd.sancho.23@hotmail.com';
+  telephone = '+34 644 74 34 58';
   linkedin = 'https://www.linkedin.com/in/daniel-sancho-jara/';
   github = 'github.com/danisancho';
   imageSize = 80;
@@ -42,46 +43,30 @@ export class CvComponent {
   };
 
   get experience(): Experience[] {
-    const lang = this.i18n.currentLanguage();
     return [
       {
         key: 'fourvenues',
-        company: 'Fourvenues',
-        role: 'Senior Frontend Developer',
-        period: 'April 2023 – April 2026',
+        company: this.i18n.t('experience.fourvenues.company'),
+        role: this.i18n.t('experience.fourvenues.title'),
+        period: this.i18n.t('experience.fourvenues.period'),
         location: 'Valencia',
-        description: 'Leadership in the design, evolution, and adoption of an Angular component library used across multiple domains.',
-        achievements: [
-          'Led design and implementation of scalable Angular component library adopted across multiple teams',
-          'Defined frontend architecture and shared standards focused on scalability, maintainability, and reusability',
-          'Designed, versioned, and distributed component library using Git and npm',
-          'Developed internal AI-based tools to assist migration and upgrade processes',
-          'Planned and executed Angular and Tailwind CSS migrations',
-          'Conducted code review through Pull Requests, enforcing quality standards',
-          'Technical mentoring of junior developers (10+)'
-        ],
-        skills: ['Angular', 'TypeScript', 'Tailwind CSS', 'Design Systems', 'Component Library', 'AI Tools', 'Technical Leadership', 'Code Review', 'Mentoring']
+        description: this.i18n.t('experience.fourvenues.description'),
+        achievements: this.i18n.t<string[]>('experience.fourvenues.achievements'),
+        skills: ['Angular', 'TypeScript', 'Tailwind CSS', 'Design Systems', 'Component Library', 'AI Tools', 'Technical Leadership', 'Code Review', 'Mentoring', 'SOLID', 'RXJS', 'SIGNALS', 'CODE REVIEW', 'WEB ACCESSIBILITY', 'KARMA', 'SCRUM', 'TECHNICAL MENTORING', 'NOTION']
       },
       {
         key: 'infortisa',
-        company: 'INFORTISA S.L.',
-        role: 'Full Stack Developer',
-        period: 'June 2018 – April 2023',
+        company: this.i18n.t('experience.infortisa.company'),
+        role: this.i18n.t('experience.infortisa.title'),
+        period: this.i18n.t('experience.infortisa.period'),
         location: 'Valencia',
-        description: 'Development and maintenance of responsive web applications using Angular and PHP.',
-        achievements: [
-          'Built and maintained responsive web applications with Angular and PHP',
-          'Implemented backend logic and REST APIs with MySQL/MariaDB databases',
-          'Developed mobile applications using Angular + Ionic (Cordova/Capacitor)',
-          'Designed component-based frontend architecture for reuse strategies',
-          'Provided technical leadership in projects and architectural decisions',
-          'Mentored junior and mid-level developers',
-          'Implemented Git-based workflows with Agile methodologies (Scrum/Kanban)',
-          'Optimized performance and improved accessibility (A11Y) and SEO'
-        ],
-        skills: ['Angular', 'PHP', 'MySQL', 'MariaDB', 'Ionic', 'Cordova', 'REST APIs', 'Responsive Design', 'A11Y', 'SEO', 'Scrum', 'Kanban']
+        description: this.i18n.t('experience.infortisa.description'),
+        achievements: this.i18n.t<string[]>('experience.infortisa.achievements'),
+        skills: ['JavaScript', 'Angular', 'TypeScript', 'SCSS', 'HTML', 'CSS', 'Responsive Web Design', 'PHP', 'API REST', 'Kanban', 'Deployment', 'Leadership', 'Mentorship', 'Optimización', 'SEO', 'Accesibilidad', 'Ionic', 'MySQL', 'MariaDB']
       }
     ];
+
+
   }
 
   education = [
