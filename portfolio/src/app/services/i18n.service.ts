@@ -59,7 +59,7 @@ const translations: Translations = {
       'Promoción activa de estándares de Clean Code mediante revisiones colaborativas y sesiones de mejora continua.'
     ]
   },
-  'experience.infortisa.title': { en: 'Full Stack Developer (Frontend focused)', es: 'Desarrollador Full Stack (Enfocado en Frontend)' },
+  'experience.infortisa.title': { en: 'Full Stack Developer (Frontend focused)', es: 'Desarrollador Full Stack (Frontend focused)' },
   'experience.infortisa.company': { en: 'INFORTISA S.L.', es: 'INFORTISA S.L.' },
   'experience.infortisa.period': { en: 'June 2018 – April 2023', es: 'Junio 2018 – Abril 2023' },
   'experience.infortisa.description': { en: 'Development and maintenance of responsive web applications using Javascript, SCSS and PHP. Tech team leadership. Ionic + Angular for mobile.', es: 'Desarrollo y mantenimiento de aplicaciones web responsivas usando Javascript, SCSS y PHP. Liderazgo de equipo técnico. Ionic + Angular para móvil.' },
