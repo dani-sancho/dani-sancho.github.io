@@ -71,10 +71,14 @@ export class CvComponent {
 
   education = [
     {
-      institution: 'Technical Engineering in Computer Science',
-      degree: 'Computer Science Degree',
-      period: '2014 – 2018',
-      location: 'Valencia'
+      degree: this.i18n.t('education.daw.title'),
+      institution: 'IES Conselleria, Valencia',
+      period: '(2017 - 2018)',
+    },
+    {
+      degree: this.i18n.t('education.smr.title'),
+      institution: 'IES Conselleria, Valencia',
+      period: '(2014 - 2016)',
     }
   ];
 

@@ -85,9 +85,15 @@ const translations: Translations = {
       'Optimización de rendimiento y mejora de accesibilidad (A11Y) y SEO'
     ]
   },
+  'education.daw.title': { en: 'Advanced Technician in Web Application Development (DAW)', es: 'Técnico Superior en Desarrollo de Aplicaciones Web (DAW)' },
+  'education.smr.title': { en: 'Technician in Microcomputer Systems and Networks (SMR)', es: 'Técnico en Sistemas Microinformáticos y Redes (SMR)' },
   'contact.email': { en: 'Email', es: 'Correo' },
   'contact.download_cv': { en: 'Download CV', es: 'Descargar CV' },
-};
+  'skills.frontend.title': { en: 'Frontend', es: 'Frontend' },
+  'skills.architecture.title': { en: 'Architecture', es: 'Arquitectura' },
+  'skills.backend.title': { en: 'Backend', es: 'Backend' },
+  'skills.tools.title': { en: 'Tools', es: 'Herramientas' }
+}
 
 @Injectable({
   providedIn: 'root'

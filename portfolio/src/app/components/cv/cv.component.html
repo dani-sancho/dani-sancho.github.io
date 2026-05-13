@@ -139,7 +139,7 @@
       @for (entry of skills | keyvalue; track entry.key) {
       <div
         class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 hover:shadow-lg transition-all hover:-translate-y-1 cursor-default">
-        <h3 class="text-sm font-semibold text-indigo-500 uppercase tracking-wider mb-3">{{ entry.key }}</h3>
+        <h3 class="text-sm font-semibold text-indigo-500 uppercase tracking-wider mb-3">{{ i18n.t(('skills.' + entry.key + '.title')) }}</h3>
         <div class="flex flex-wrap gap-2">
           @for (skill of entry.value; track skill) {
           <app-skill-chip [label]="skill" size="sm"></app-skill-chip>
@@ -160,10 +160,9 @@
       <div
         class="p-5 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 hover:shadow-lg transition-all hover:-translate-y-1">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ edu.degree }}</h3>
+        <div class="flex gap-3 mt-2 items-center">
         <p class="text-indigo-500 font-medium">{{ edu.institution }}</p>
-        <div class="flex gap-3 mt-2">
           <span class="text-sm text-gray-500 dark:text-gray-400">{{ edu.period }}</span>
-          <span class="text-sm text-gray-500 dark:text-gray-400">{{ edu.location }}</span>
         </div>
       </div>
       }
