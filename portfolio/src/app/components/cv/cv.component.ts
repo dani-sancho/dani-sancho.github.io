@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { I18nService } from '../../services/i18n.service';
 import { ModalComponent } from '../modal/modal.component';
 import { ButtonComponent } from '../button/button.component';
+import { SkillChipComponent } from '../skill-chip/skill-chip.component';
 
 interface Experience {
   key: string;
   company: string;
   role: string;
   period: string;
+  location: string;
   description: string;
-  achievements?: string[];
+  achievements: string[];
+  skills: string[];
 }
 
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [CommonModule, ModalComponent, ButtonComponent],
+  imports: [CommonModule, ModalComponent, ButtonComponent, SkillChipComponent],
   templateUrl: './cv.component.html'
 })
 export class CvComponent {
@@ -32,10 +35,10 @@ export class CvComponent {
   isModalOpen = signal(false);
 
   skills = {
-    frontend: ['Angular', 'TypeScript', 'Tailwind CSS', 'React', 'SCSS', 'HTML5'],
-    architecture: ['Design Systems', 'Component Libraries', 'SOLID', 'Clean Code'],
-    backend: ['REST APIs', 'PHP', 'MySQL', 'Node.js'],
-    tools: ['Git', 'npm', 'CI/CD', 'Figma', 'Notion']
+    frontend: ['Angular', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'SCSS', 'HTML5'],
+    architecture: ['Design Systems', 'Component Libraries', 'Frontend Architecture', 'SOLID', 'Clean Code'],
+    backend: ['REST APIs', 'PHP', 'MySQL', 'MariaDB', 'Node.js'],
+    tools: ['Git', 'npm', 'CI/CD', 'Figma', 'Notion', 'Scrum', 'Kanban']
   };
 
   get experience(): Experience[] {
@@ -43,52 +46,50 @@ export class CvComponent {
     return [
       {
         key: 'fourvenues',
-        company: this.i18n.t('experience.fourvenues.company'),
-        role: this.i18n.t('experience.fourvenues.title'),
-        period: this.i18n.t('experience.fourvenues.period'),
-        description: this.i18n.t('experience.fourvenues.description'),
-        achievements: lang === 'en' ? [
-          'Led design and implementation of scalable Angular component library',
-          'Defined frontend architecture and shared standards for scalability',
-          'Developed AI-based tools for migration and upgrade processes',
-          'Technical mentoring of 10+ developers',
-          'Code review and quality standards enforcement'
-        ] : [
-          'Liderazgo en el diseño e implementación de biblioteca de componentes Angular',
-          'Definición de arquitectura frontend y estándares compartidos',
-          'Herramientas basadas en IA para procesos de migración',
-          'Mentoría técnica de más de 10 desarrolladores',
-          'Revisión de código y aplicación de estándares de calidad'
-        ]
+        company: 'Fourvenues',
+        role: 'Senior Frontend Developer',
+        period: 'April 2023 – April 2026',
+        location: 'Valencia',
+        description: 'Leadership in the design, evolution, and adoption of an Angular component library used across multiple domains.',
+        achievements: [
+          'Led design and implementation of scalable Angular component library adopted across multiple teams',
+          'Defined frontend architecture and shared standards focused on scalability, maintainability, and reusability',
+          'Designed, versioned, and distributed component library using Git and npm',
+          'Developed internal AI-based tools to assist migration and upgrade processes',
+          'Planned and executed Angular and Tailwind CSS migrations',
+          'Conducted code review through Pull Requests, enforcing quality standards',
+          'Technical mentoring of junior developers (10+)'
+        ],
+        skills: ['Angular', 'TypeScript', 'Tailwind CSS', 'Design Systems', 'Component Library', 'AI Tools', 'Technical Leadership', 'Code Review', 'Mentoring']
       },
       {
         key: 'infortisa',
-        company: this.i18n.t('experience.infortisa.company'),
-        role: this.i18n.t('experience.infortisa.title'),
-        period: this.i18n.t('experience.infortisa.period'),
-        description: this.i18n.t('experience.infortisa.description'),
-        achievements: lang === 'en' ? [
-          'Built full-stack applications with Angular + PHP',
-          'REST API development with MySQL/MariaDB',
-          'Mobile apps with Angular + Ionic (Cordova/Capacitor)',
-          'Component-based architecture design and reuse',
-          'Technical leadership in projects'
-        ] : [
-          'Aplicaciones full-stack con Angular + PHP',
-          'Desarrollo de API REST con MySQL/MariaDB',
-          'Apps móviles con Angular + Ionic (Cordova/Capacitor)',
-          'Diseño de arquitectura basada en componentes',
-          'Liderazgo técnico en proyectos'
-        ]
+        company: 'INFORTISA S.L.',
+        role: 'Full Stack Developer',
+        period: 'June 2018 – April 2023',
+        location: 'Valencia',
+        description: 'Development and maintenance of responsive web applications using Angular and PHP.',
+        achievements: [
+          'Built and maintained responsive web applications with Angular and PHP',
+          'Implemented backend logic and REST APIs with MySQL/MariaDB databases',
+          'Developed mobile applications using Angular + Ionic (Cordova/Capacitor)',
+          'Designed component-based frontend architecture for reuse strategies',
+          'Provided technical leadership in projects and architectural decisions',
+          'Mentored junior and mid-level developers',
+          'Implemented Git-based workflows with Agile methodologies (Scrum/Kanban)',
+          'Optimized performance and improved accessibility (A11Y) and SEO'
+        ],
+        skills: ['Angular', 'PHP', 'MySQL', 'MariaDB', 'Ionic', 'Cordova', 'REST APIs', 'Responsive Design', 'A11Y', 'SEO', 'Scrum', 'Kanban']
       }
     ];
   }
 
   education = [
     {
-      institution: 'Computer Science',
-      degree: 'Technical Engineering',
-      period: '2014 – 2018'
+      institution: 'Technical Engineering in Computer Science',
+      degree: 'Computer Science Degree',
+      period: '2014 – 2018',
+      location: 'Valencia'
     }
   ];
 
