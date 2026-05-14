@@ -29,7 +29,7 @@ export class CvComponent {
   email = 'd.sancho.23@hotmail.com';
   telephone = '+34 644 74 34 58';
   linkedin = 'https://www.linkedin.com/in/daniel-sancho-jara/';
-  github = 'github.com/danisancho';
+  github = 'https://github.com/dani-sancho';
   imageSize = 80;
 
   selectedExperience = signal<Experience | null>(null);

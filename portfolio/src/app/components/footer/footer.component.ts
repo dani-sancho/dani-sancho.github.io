@@ -12,5 +12,10 @@ import { ButtonComponent } from '../button/button.component';
 export class FooterComponent {
   i18n = inject(I18nService);
   
+  email = 'd.sancho.23@hotmail.com';
+  telephone = '+34 644 74 34 58';
+  linkedin = 'https://www.linkedin.com/in/daniel-sancho-jara/';
+  github = 'https://github.com/dani-sancho';
+  
   currentYear = new Date().getFullYear();
 }
