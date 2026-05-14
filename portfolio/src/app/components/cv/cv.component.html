@@ -1,5 +1,5 @@
 <main class="max-w-4xl mx-auto px-4 pt-24 pb-12">
-  <!-- Hero Section -->
+  <!-- Profile Section -->
   <section class="mb-16 min-h-[40vh] flex items-center">
     <div class="grid md:grid-cols-2 gap-10 items-center w-full">
       <!-- Left: Photo + Text -->
@@ -28,14 +28,14 @@
             </div>
 
             <div class="flex flex-col ">
-              <p class="text-indigo-500 font-medium">{{ i18n.t('hero.greeting') }}</p>
+              <p class="text-indigo-500 font-medium pl-1">{{ i18n.t('profile.greeting') }}</p>
               <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">{{
                 name }}</h1>
             </div>
           </div>
-          <h2 class="text-lg md:text-xl font-semibold text-gray-600 dark:text-gray-300 mb-3">{{ i18n.t('hero.role') }}
+          <h2 class="text-lg md:text-xl font-semibold text-gray-600 dark:text-gray-300 mb-3">{{ i18n.t('profile.role') }}
           </h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 leading-relaxed" [innerHTML]="i18n.t('hero.tagline')">
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 leading-relaxed" [innerHTML]="i18n.t('profile.tagline')">
             </p>
         </div>
 
@@ -161,7 +161,7 @@
         class="p-5 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 hover:shadow-lg transition-all hover:-translate-y-1">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ edu.degree }}</h3>
         <div class="flex gap-3 mt-2 items-center">
-        <p class="text-indigo-500 font-medium">{{ edu.institution }}</p>
+          <p class="text-indigo-500 font-medium">{{ edu.institution }}</p>
           <span class="text-sm text-gray-500 dark:text-gray-400">{{ edu.period }}</span>
         </div>
       </div>

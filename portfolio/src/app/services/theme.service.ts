@@ -47,4 +47,8 @@ export class ThemeService {
   isDark(): boolean {
     return this.currentTheme() === 'dark';
   }
+
+  setDark(isDark: boolean): void {
+    this.currentTheme.set(isDark ? 'dark' : 'light');
+  }
 }

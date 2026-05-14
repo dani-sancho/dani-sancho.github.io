@@ -4,11 +4,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { I18nService } from '../../services/i18n.service';
 import { ThemeService } from '../../services/theme.service';
 import { ButtonComponent } from '../button/button.component';
+import { ElectricPlugComponent } from '../electric-plug/electric-plug.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, ButtonComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, ButtonComponent, ElectricPlugComponent],
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {

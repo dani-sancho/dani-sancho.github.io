@@ -52,6 +52,18 @@ import { CommonModule } from '@angular/common';
     .animate-modal {
       animation: animate-modal 0.2s ease-out;
     }
+    .animate-modal::-webkit-scrollbar {
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .animate-modal::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 1rem;
+    }
+    .animate-modal::-webkit-scrollbar-thumb {
+      border-radius: 1rem!important;
+      margin: 10px 0;
+    }
   `]
 })
 export class ModalComponent {

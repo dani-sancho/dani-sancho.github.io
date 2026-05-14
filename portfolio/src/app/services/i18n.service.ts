@@ -13,9 +13,9 @@ const translations: Translations = {
   'nav.home': { en: 'Home', es: 'Inicio' },
   'nav.projects': { en: 'Projects', es: 'Proyectos' },
   'nav.contact': { en: 'Contact', es: 'Contacto' },
-  'hero.greeting': { en: "Hi, I'm", es: 'Hola, soy' },
-  'hero.role': { en: 'Senior Frontend Developer', es: 'Desarrollador Frontend Senior' },
-  'hero.tagline': { en: '+8 years of experience. <span class="text-indigo-500">Focused on Angular</span> and Design Systems. Specialized in code quality, scalable architectures and team mentorship.', es: '+8 años de experiencia. <span class="text-indigo-500">Enfocado en Angular</span> y Sistemas de Diseño. Especializado en calidad de código, arquitecturas escalables y mentorship de equipos.' },
+  'profile.greeting': { en: "Hi, I'm", es: 'Hola, soy' },
+  'profile.role': { en: 'Senior Frontend Developer', es: 'Desarrollador Frontend Senior' },
+  'profile.tagline': { en: '+8 years of experience. <span class="text-indigo-500">Focused on Angular</span> and Design Systems. Specialized in code quality, scalable architectures and team mentorship.', es: '+8 años de experiencia. <span class="text-indigo-500">Enfocado en Angular</span> y Sistemas de Diseño. Especializado en calidad de código, arquitecturas escalables y mentorship de equipos.' },
   'about.title': { en: 'About Me', es: 'Sobre Mí' },
   'about.description': {
     en: 'Frontend developer with 8+ years of experience specializing in Angular, design systems, and frontend architecture. Focused on code quality, scalable solutions, and technical leadership. <br><br>I have evolved from full-stack development to a profile focused on frontend architecture and building scalable solutions for complex environments. I stand out for my focus on code quality, solution standardization, and continuous improvement of technical processes within the team.',
@@ -92,7 +92,8 @@ const translations: Translations = {
   'skills.frontend.title': { en: 'Frontend', es: 'Frontend' },
   'skills.architecture.title': { en: 'Architecture', es: 'Arquitectura' },
   'skills.backend.title': { en: 'Backend', es: 'Backend' },
-  'skills.tools.title': { en: 'Tools', es: 'Herramientas' }
+  'skills.tools.title': { en: 'Tools', es: 'Herramientas' },
+  'theme.plug.tooltip.light': { en: 'Plug me in :)', es: 'Enchúfame :)' },
 }
 
 @Injectable({
