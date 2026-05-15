@@ -18,6 +18,8 @@
     <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
       <li><a routerLink="/" routerLinkActive="text-indigo-500" [routerLinkActiveOptions]="{exact: true}"
           class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home') }}</a></li>
+      <li><a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+          i18n.t('nav.contact') }}</a></li>
       <li class="relative flex items-center" (mouseenter)="isHoveringProjects.set(true)"
         (mouseleave)="isHoveringProjects.set(false)">
         <span class="text-gray-400 dark:text-gray-600 cursor-not-allowed font-medium select-none">
@@ -25,8 +27,6 @@
         </span>
         <app-tooltip text="coming soon :)" [show]="isHoveringProjects()"></app-tooltip>
       </li>
-      <li><a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
-          i18n.t('nav.contact') }}</a></li>
     </ul>
 
     <div class="w-px h-2/3 py-1 bg-gray-200 dark:bg-gray-700 max-md:hidden"></div>

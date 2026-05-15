@@ -39,7 +39,7 @@ interface Point {
       (pointerdown)="onPointerDown($event)"
     >
       <svg 
-        class="w-10 h-10 cable-svg" 
+        [style.width.px]="39" [style.height.px]="39" class="cable-svg" 
         [style.transform]="'rotate(' + currentRotation() + 'deg)'"
         viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
       >
@@ -142,7 +142,7 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     const dropDistance = scrollY > 10 ? 0 : 60;
     
     return {
-      x: anchor.x - 20, 
+      x: anchor.x - 19.5, 
       y: anchor.y + dropDistance  
     };
   }
@@ -155,12 +155,14 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     const navRect = this.getNavRect();
     
     return {
-      x: socketCenterGlobal.x - navRect.left - 20 - 1, 
-      y: socketCenterGlobal.y - navRect.top - 20 + 9
+      x: socketCenterGlobal.x - navRect.left - 19.5 - 1, 
+      y: socketCenterGlobal.y - navRect.top - 19.5 + 9
     };
   }
 
   private snapToCurrentState() {
+    if (this.isDraggingGlobal) return;
+    
     if (this.isConnected()) {
       const target = this.getSocketPlugPosition();
       if (target) this.animateTo(target);
@@ -200,8 +202,8 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     const startX = anchor.x;
     const startY = anchor.y;
     
-    const cx = pos.x + 20;
-    const cy = pos.y + 20;
+    const cx = pos.x + 19.5;
+    const cy = pos.y + 19.5;
     
     // Calculate the attachment point at the base of the plug.
     // The plug viewBox is 100x100 and scaled to 40x40. Center is at 50,50.
@@ -230,8 +232,10 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     event.preventDefault();
     event.stopPropagation();
     
+    this.isDragging.set(true);
+    this.isDraggingGlobal = true;
+
     if (this.isConnected()) {
-      this.isConnected.set(false);
       const socketComponent = this.socket();
       if (socketComponent) {
         socketComponent.checkConnection({ x: 0, y: 0 }); 
@@ -240,15 +244,13 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     
     this.updateAnchorPoint();
     
-    this.isDragging.set(true);
-    this.isDraggingGlobal = true;
     this.lastPointerY = event.clientY;
     this.updateRotationState();
     
     const navRect = this.getNavRect();
     this.dragPosition.set({ 
-      x: event.clientX - navRect.left - 20, 
-      y: event.clientY - navRect.top - 20 
+      x: event.clientX - navRect.left - 19.5, 
+      y: event.clientY - navRect.top - 19.5 
     });
 
     const onPointerMove = (e: PointerEvent) => {
@@ -257,9 +259,23 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
       
       const currentNavRect = this.getNavRect();
       this.dragPosition.set({ 
-        x: e.clientX - currentNavRect.left - 20, 
-        y: e.clientY - currentNavRect.top - 20 
+        x: e.clientX - currentNavRect.left - 19.5, 
+        y: e.clientY - currentNavRect.top - 19.5 
       });
+
+      // If we were connected, check if we've dragged far enough to unplug
+      if (this.isConnected()) {
+        const plugCenterGlobal = this.getPlugCenterGlobal();
+        const socketComponent = this.socket();
+        if (socketComponent) {
+          const socketCenter = socketComponent.getSocketCenter();
+          const dist = Math.sqrt(Math.pow(plugCenterGlobal.x - socketCenter.x, 2) + Math.pow(plugCenterGlobal.y - socketCenter.y, 2));
+          if (dist > 35) { 
+            this.isConnected.set(false);
+            socketComponent.checkConnection({ x: 0, y: 0 }); 
+          }
+        }
+      }
 
       const dy = e.clientY - this.lastPointerY;
       if (Math.abs(dy) > 2) {
@@ -358,8 +374,8 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     const pos = this.dragPosition();
     const navRect = this.getNavRect();
     return {
-      x: pos.x + 20 + navRect.left,
-      y: pos.y + 20 + navRect.top
+      x: pos.x + 19.5 + navRect.left,
+      y: pos.y + 19.5 + navRect.top
     };
   }
 

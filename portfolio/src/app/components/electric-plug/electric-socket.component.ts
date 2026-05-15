@@ -1,4 +1,4 @@
-import { Component, inject, signal, output, HostListener, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, inject, signal, output, HostListener, AfterViewInit, OnDestroy, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
 
@@ -9,15 +9,12 @@ import { ThemeService } from '../../services/theme.service';
   template: `
     <div 
       class="relative flex-shrink-0"
-      [class.scale-105]="isNear()"
-      [class.scale-110]="isConnected()"
-      [class.cursor-help]="!isConnected()"
       (pointerenter)="onPointerEnter()"
       (pointerleave)="onPointerLeave()"
     >
-      <svg width="40" height="40" class="w-10 h-10" viewBox="0 0 120 120" fill="none">
+      <svg width="39" height="39" [style.width.px]="39" [style.height.px]="39" viewBox="0 0 120 120" fill="none">
         <!-- Outer plate -->
-        <rect x="10" y="10" width="100" height="100" rx="24" 
+        <rect x="0" y="0" width="120" height="120" rx="24" 
           [attr.fill]="isConnected() ? '#dcfce7' : '#ECECEC'"
           [attr.stroke]="isConnected() ? '#86efac' : '#CFCFCF'" 
           stroke-width="4"/>
@@ -42,6 +39,7 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class ElectricSocketComponent implements AfterViewInit, OnDestroy {
   theme = inject(ThemeService);
+  isDragging = input(false);
   
   connected = output<boolean>();
   near = output<boolean>();
@@ -114,6 +112,10 @@ export class ElectricSocketComponent implements AfterViewInit, OnDestroy {
   }
 
   checkProximity(plugCenter: { x: number; y: number }): boolean {
+    if (this.isDragging()) {
+      this.isNear.set(false);
+      return false;
+    }
     const socket = this.getSocketCenter();
     const distance = Math.sqrt(
       Math.pow(plugCenter.x - socket.x, 2) + 
@@ -132,11 +134,13 @@ export class ElectricSocketComponent implements AfterViewInit, OnDestroy {
   }
 
   onPointerEnter() {
+    if (this.isDragging()) return;
     this.isNear.set(true);
     this.near.emit(true);
   }
 
   onPointerLeave() {
+    if (this.isDragging()) return;
     if (!this.isConnected()) {
       this.isNear.set(false);
       this.near.emit(false);

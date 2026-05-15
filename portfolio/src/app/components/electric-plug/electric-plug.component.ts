@@ -14,10 +14,10 @@ import { ThemeService } from '../../services/theme.service';
     <div class="flex items-center h-full gap-3">
       <div 
         class="relative flex items-center justify-center"
-        (mouseenter)="isHoveringSocket.set(true)"
+        (mouseenter)="!cable.isDragging() && isHoveringSocket.set(true)"
         (mouseleave)="isHoveringSocket.set(false)"
       >
-        <app-electric-socket #socket (connected)="onConnected($event)"></app-electric-socket>
+        <app-electric-socket #socket [isDragging]="cable.isDragging()" (connected)="onConnected($event)"></app-electric-socket>
         
         <app-tooltip 
           [text]="i18n.t('theme.plug.tooltip.light')" 
