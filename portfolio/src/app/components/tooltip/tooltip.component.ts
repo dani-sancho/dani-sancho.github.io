@@ -30,5 +30,5 @@ import { CommonModule } from '@angular/common';
 export class TooltipComponent {
   text = input.required<string>();
   show = input<boolean>(false);
-  animated = input<boolean>(true);
+  animated = input<boolean>(false);
 }

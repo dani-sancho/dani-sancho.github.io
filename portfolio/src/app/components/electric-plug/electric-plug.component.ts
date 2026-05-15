@@ -21,6 +21,7 @@ import { ThemeService } from '../../services/theme.service';
         
         <app-tooltip 
           [text]="i18n.t('theme.plug.tooltip.light')" 
+          [animated]="true"
           [show]="isHoveringSocket() && !cable.isDragging() && !cable.isConnected()"
         ></app-tooltip>
       </div>
