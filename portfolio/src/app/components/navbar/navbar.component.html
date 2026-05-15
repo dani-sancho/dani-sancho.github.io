@@ -2,7 +2,7 @@
   class="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-full shadow-lg"
   role="navigation" aria-label="Main navigation">
   <div class="max-w-4xl mx-auto px-6 flex items-center justify-between h-12 gap-4">
-    <a routerLink="/" class="text-xl font-bold text-indigo-500" (click)="closeMenu()">DS</a>
+    <a (click)="scrollToTop()" class="cursor-pointer text-xl font-bold text-indigo-500">DS</a>
 
     <button class="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500" (click)="toggleMenu()"
       [attr.aria-expanded]="isMenuOpen()" aria-controls="nav-menu" aria-label="Toggle navigation">
@@ -16,9 +16,9 @@
     </button>
 
     <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
-      <li><a routerLink="/" routerLinkActive="text-indigo-500" [routerLinkActiveOptions]="{exact: true}"
-          class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home') }}</a></li>
-      <li><a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+      <li><a (click)="scrollToTop()"
+          class="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home') }}</a></li>
+      <li><a (click)="scrollToSection('contact')" class="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
           i18n.t('nav.contact') }}</a></li>
       <li class="relative flex items-center" (mouseenter)="isHoveringProjects.set(true)"
         (mouseleave)="isHoveringProjects.set(false)">
@@ -42,20 +42,21 @@
 </nav>
 
 @if (isMenuOpen()) {
-<div class="fixed top-[5.5rem] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm z-40 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl md:hidden">
+<div class="fixed inset-0 z-30 bg-black/10 dark:bg-black/40 backdrop-blur-[2px] md:hidden" (click)="closeMenu()"></div>
+
+<div class="fixed top-[5.5rem] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl md:hidden">
   <ul class="px-4 py-3 space-y-1">
-    <li><a routerLink="/" (click)="closeMenu()"
-        class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home')
+    <li><a (click)="scrollToTop(); closeMenu()"
+        class="cursor-pointer block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home')
         }}</a></li>
-    <li class="relative" (click)="isHoveringProjects.set(!isHoveringProjects())">
+    <li><a (click)="scrollToSection('contact'); closeMenu()"
+        class="cursor-pointer block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.contact')
+        }}</a></li>
+    <li class="relative" title="coming soon :)">
       <span class="block py-2 text-gray-400 dark:text-gray-600 cursor-not-allowed font-medium select-none">
-        {{ i18n.t('nav.projects') }}
+        {{ i18n.t('nav.projects') }} (coming soon)
       </span>
-      <app-tooltip text="coming soon :)" [show]="isHoveringProjects()"></app-tooltip>
     </li>
-    <li><a href="#contact" (click)="closeMenu()"
-        class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.contact')
-        }}</a></li>
   </ul>
   <div class="px-4 pb-4 flex gap-2">
     <app-button variant="icon" (onClick)="theme.toggleTheme(); closeMenu()" class="flex-1" [isFullWidth]="true">
