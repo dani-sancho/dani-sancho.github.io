@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild, AfterViewInit, inject, effect } from '@angular/core';
+import { Component, signal, viewChild, AfterViewInit, inject, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ElectricSocketComponent } from './electric-socket.component';
 import { ElectricCableComponent } from './electric-cable.component';
@@ -25,7 +25,7 @@ import { ThemeService } from '../../services/theme.service';
           [show]="isHoveringSocket() && !cable.isDragging() && !cable.isConnected()"
         ></app-tooltip>
       </div>
-      <app-electric-cable #cable [socket]="socketComponent"></app-electric-cable>
+      <app-electric-cable #cable [socket]="socketComponent()"></app-electric-cable>
     </div>
   `,
   styleUrl: './electric-plug.component.scss'
@@ -34,8 +34,8 @@ export class ElectricPlugComponent implements AfterViewInit {
   i18n = inject(I18nService);
   theme = inject(ThemeService);
   
-  @ViewChild('socket') socketComponent!: ElectricSocketComponent;
-  @ViewChild('cable') cableComponent!: ElectricCableComponent;
+  socketComponent = viewChild.required<ElectricSocketComponent>('socket');
+  cableComponent = viewChild.required<ElectricCableComponent>('cable');
   
   isConnected = signal(false);
   isHoveringSocket = signal(false);
@@ -50,8 +50,8 @@ export class ElectricPlugComponent implements AfterViewInit {
       const shouldBeConnected = !isDark;
       
       if (this.isConnected() !== shouldBeConnected) {
-        this.socketComponent.isConnected.set(shouldBeConnected);
-        this.cableComponent.setConnected(shouldBeConnected);
+        this.socketComponent().isConnected.set(shouldBeConnected);
+        this.cableComponent().setConnected(shouldBeConnected);
         this.isConnected.set(shouldBeConnected);
       }
     });
@@ -61,8 +61,8 @@ export class ElectricPlugComponent implements AfterViewInit {
     const isDark = this.theme.currentTheme() === 'dark';
     
     // If dark mode, cable is visible immediately. If light mode, hide it initially.
-    if (this.cableComponent) {
-      this.cableComponent.isVisible.set(isDark);
+    if (this.cableComponent()) {
+      this.cableComponent().isVisible.set(isDark);
     }
 
     // Delay to let DOM layout settle so coordinates are calculated correctly
@@ -72,8 +72,8 @@ export class ElectricPlugComponent implements AfterViewInit {
       if (!isDark) {
         // For light mode, fade it in after it has snapped to the socket
         setTimeout(() => {
-          if (this.cableComponent) {
-            this.cableComponent.isVisible.set(true);
+          if (this.cableComponent()) {
+            this.cableComponent().isVisible.set(true);
           }
         }, 150);
       }
@@ -82,8 +82,8 @@ export class ElectricPlugComponent implements AfterViewInit {
 
   onConnected(connected: boolean) {
     this.isConnected.set(connected);
-    if (this.cableComponent) {
-      this.cableComponent.setConnected(connected);
+    if (this.cableComponent()) {
+      this.cableComponent().setConnected(connected);
     }
     // Note: electric-socket handles updating the theme, which will trigger the effect again,
     // but the `if (this.isConnected() !== shouldBeConnected)` guard will prevent infinite loops.

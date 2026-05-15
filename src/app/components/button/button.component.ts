@@ -23,6 +23,7 @@ interface VariantStyles {
         [target]="target() || '_self'"
         [rel]="target() === '_blank' ? 'noopener noreferrer' : ''"
         [class]="classes()"
+        [attr.aria-label]="ariaLabel()"
       >
         <ng-container *ngTemplateOutlet="content"></ng-container>
       </a>
@@ -32,6 +33,7 @@ interface VariantStyles {
         [disabled]="disabled()"
         (click)="onClick.emit($event)"
         [class]="classes()"
+        [attr.aria-label]="ariaLabel()"
       >
         <ng-container *ngTemplateOutlet="content"></ng-container>
       </button>
@@ -46,6 +48,7 @@ export class ButtonComponent {
   target = input('');
   type = input<'button' | 'submit' | 'reset'>('button');
   isFullWidth = input(false);
+  ariaLabel = input<string>('');
   onClick = output<MouseEvent>();
 
   private isDark = computed(() => {
