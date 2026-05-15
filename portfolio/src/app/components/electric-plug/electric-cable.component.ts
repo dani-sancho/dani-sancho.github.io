@@ -85,6 +85,8 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
   currentRotation = signal(180);
   
   private isDraggingGlobal = false;
+  private lastPointerY = 0;
+  private lastTargetRotation = 180;
   private animationFrameId: number | null = null;
   private rotationFrameId: number | null = null;
   private resizeObserver: ResizeObserver | null = null;
@@ -167,11 +169,27 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  private updateRotationState() {
+  private updateRotationState(movingUp?: boolean) {
     // 180 is hanging down naturally (pins point down)
     // 0 is flipped up ready to plug in (pins point up)
-    const targetRotation = (this.isDragging() || this.isConnected()) ? 0 : 180;
-    this.animateRotationTo(targetRotation);
+    let targetRotation = this.lastTargetRotation;
+
+    if (this.isConnected()) {
+      targetRotation = 0;
+    } else if (this.isDragging()) {
+      if (movingUp === true) {
+        targetRotation = 0;
+      } else if (movingUp === false) {
+        targetRotation = 180;
+      }
+    } else {
+      targetRotation = 180;
+    }
+
+    if (targetRotation !== this.lastTargetRotation) {
+      this.lastTargetRotation = targetRotation;
+      this.animateRotationTo(targetRotation);
+    }
   }
 
   cablePath = computed(() => {
@@ -224,6 +242,7 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
     
     this.isDragging.set(true);
     this.isDraggingGlobal = true;
+    this.lastPointerY = event.clientY;
     this.updateRotationState();
     
     const navRect = this.getNavRect();
@@ -241,6 +260,12 @@ export class ElectricCableComponent implements AfterViewInit, OnDestroy {
         x: e.clientX - currentNavRect.left - 20, 
         y: e.clientY - currentNavRect.top - 20 
       });
+
+      const dy = e.clientY - this.lastPointerY;
+      if (Math.abs(dy) > 2) {
+        this.updateRotationState(dy < 0);
+        this.lastPointerY = e.clientY;
+      }
       
       this.checkProximity();
     };
