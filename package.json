@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:github": "ng build --base-href=/dani-sancho.github.io/ --output-path=docs",
+    "build:github": "ng build --configuration=github --base-href=/dani-sancho.github.io/ && node -e \"const fs=require('fs');const p='docs/browser';const d='docs';fs.readdirSync(p).forEach(f=>fs.renameSync(p+'/'+f,d+'/'+f))\" && node -e \"const fs=require('fs');fs.rmSync('docs/browser',{recursive:true})\" ",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
