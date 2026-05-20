@@ -1,59 +1,42 @@
-# Portfolio
+# Daniel Sancho - CV Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Welcome to my interactive CV portfolio repository! This project serves not only as my digital resume but also as a demonstration of my front-end development skills, particularly in Angular, UI/UX design, and software testing.
 
-## Development server
+## 📸 Project Overview
 
-To start a local development server, run:
+Here are some screenshots of the application:
 
-```bash
-ng serve
-```
+### Light Mode & Dark Mode with Interactive Theme Toggle
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+![Theme Toggle - Dark Mode](src/assets/about/1.png)
+![Theme Toggle - Light Mode](src/assets/about/2.png)
 
-## Code scaffolding
+### Responsive Design & Information Architecture
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+![Desktop Layout](src/assets/about/3.png)
+![Modal Interactions](src/assets/about/4.png)
+![Mobile Layout](src/assets/about/5.png)
 
-```bash
-ng generate component component-name
-```
+## 🧪 Testing & Code Quality
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+I believe that robust testing is a cornerstone of professional software development. In this project, I have implemented a comprehensive testing strategy to ensure reliability and maintainability.
 
-```bash
-ng generate --help
-```
+### End-to-End (E2E) Testing with Playwright
+The application uses [Playwright](https://playwright.dev/) for end-to-end testing, simulating real user interactions across different browsers (Chromium, Firefox, WebKit).
+- Playwright is fully configured as seen in `playwright.config.ts`.
+- Run tests using `npx playwright test`.
+- A fully parallelized testing environment ensures quick feedback loops.
 
-## Building
+### Component & Unit Testing
+Unit tests are configured using [Vitest](https://vitest.dev/), a fast and modern testing framework. Angular's testing utilities are used to verify that individual components render and behave as expected in isolation.
+- You can find `.spec.ts` files alongside each component (e.g., `footer.component.spec.ts`).
+- Run tests using `npm run test` or `ng test`.
 
-To build the project run:
+## 🛠️ Tech Stack & Architecture
+- **Framework:** Angular 
+- **Language:** TypeScript
+- **Styling:** SCSS, custom design system, focus on accessibility and responsiveness.
+- **Testing:** Playwright (E2E), Vitest (Unit/Component)
+- **Deployment:** GitHub Pages
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Thank you for visiting my repository! If you have any questions or want to get in touch, feel free to reach out via LinkedIn or Email as linked in the portfolio.
