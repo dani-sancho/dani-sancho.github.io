@@ -19,10 +19,10 @@ test.describe('Components E2E', () => {
   });
 
   test('footer should have contact buttons with aria-labels', async ({ page }) => {
-    await expect(page.locator('app-button[aria-label="Phone"]')).toBeVisible();
-    await expect(page.locator('app-button[aria-label="Email"]')).toBeVisible();
-    await expect(page.locator('app-button[aria-label="LinkedIn"]')).toBeVisible();
-    await expect(page.locator('app-button[aria-label="GitHub"]')).toBeVisible();
+    await expect(page.locator('app-button [aria-label="Phone"]')).toBeVisible();
+    await expect(page.locator('app-button [aria-label="Email"]')).toBeVisible();
+    await expect(page.locator('app-button [aria-label="LinkedIn"]')).toBeVisible();
+    await expect(page.locator('app-button [aria-label="GitHub"]')).toBeVisible();
   });
 
   test('profile section should have h1', async ({ page }) => {

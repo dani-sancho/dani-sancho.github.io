@@ -1,6 +1,6 @@
 # Daniel Sancho - CV Portfolio
 
-Welcome to my interactive CV portfolio repository! This project serves not only as my digital resume but also as a demonstration of my front-end development skills, particularly in Angular, UI/UX design, and software testing.
+Welcome to my interactive CV portfolio repository! This project serves not only as my digital resume but also as a demonstration of my front-end development skills, particularly in Angular, UI/UX design, and software testing. <a href="https://dani-sancho.github.io">Link to project</a>
 
 ## 📸 Project Overview
 

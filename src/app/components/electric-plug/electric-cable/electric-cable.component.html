@@ -1,0 +1,40 @@
+<!-- The dynamic stretching cable -->
+<svg class="fixed inset-0 pointer-events-none z-40 w-full h-full cable-svg transition-opacity duration-300 delay-75"
+  [class.opacity-0]="!isVisible() || hasBeenInit()" [class.opacity-100]="isVisible()">
+  <path [attr.d]="cablePath()" [attr.stroke]="isConnected() ? '#1f1f1f' : '#4b5563'" stroke-width="3" fill="none"
+    stroke-linecap="round" />
+</svg>
+
+<!-- The Plug -->
+<div class="fixed z-50 cursor-grab select-none drop-shadow-md plug-container transition-opacity duration-300 delay-75"
+  [class.opacity-0]="!isVisible()" [class.opacity-100]="isVisible()" [class.cursor-grabbing]="isDragging()"
+  [class.scale-105]="isDragging()" [style.left.px]="dragPosition().x" [style.top.px]="dragPosition().y"
+  (pointerdown)="onPointerDown($event)">
+  <svg [style.width.px]="39" [style.height.px]="39" class="cable-svg"
+    [style.transform]="'rotate(' + currentRotation() + 'deg)'" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Pines metálicos finos -->
+    @if (!isConnected()) {
+    <rect x="33" y="4" width="6" height="26" rx="2" fill="#d8a800" />
+    <rect x="61" y="4" width="6" height="26" rx="2" fill="#d8a800" />
+    }
+
+    <!-- Barra superior -->
+    <rect x="18" y="24" width="64" height="10" rx="1" fill="#1f1f1f" />
+
+    <!-- Cuerpo principal -->
+    <path d="M22 34 L78 34 L72 68 Q50 82 28 68 Z" fill="#2b2b2b" />
+
+    <!-- Sombra interna -->
+    <path d="M30 42 L70 42 L66 62 Q50 72 34 62 Z" fill="#333" />
+
+    <!-- Línea inferior recta -->
+    <rect x="40" y="68" width="20" height="4" rx="1" fill="#1f1f1f" />
+
+    <!-- Base inferior -->
+    <path d="M42 72 L58 72 L55 88 L45 88 Z" fill="#1f1f1f" />
+
+    <!-- Líneas decorativas -->
+    <rect x="45" y="76" width="10" height="2" fill="#444" />
+    <rect x="44" y="81" width="12" height="2" fill="#444" />
+  </svg>
+</div>
