@@ -1,6 +1,6 @@
 <!-- The dynamic stretching cable -->
 <svg class="fixed inset-0 pointer-events-none z-40 w-full h-full cable-svg transition-opacity duration-300 delay-75"
-  [class.opacity-0]="!isVisible() || hasBeenInit()" [class.opacity-100]="isVisible()">
+  [class.opacity-0]="!isVisible() || hasBeenInit()" [class.opacity-100]="isVisible()" width="1" height="73">
   <path [attr.d]="cablePath()" [attr.stroke]="isConnected() ? '#1f1f1f' : '#4b5563'" stroke-width="3" fill="none"
     stroke-linecap="round" />
 </svg>
@@ -10,7 +10,7 @@
   [class.opacity-0]="!isVisible()" [class.opacity-100]="isVisible()" [class.cursor-grabbing]="isDragging()"
   [class.scale-105]="isDragging()" [style.left.px]="dragPosition().x" [style.top.px]="dragPosition().y"
   (pointerdown)="onPointerDown($event)">
-  <svg [style.width.px]="39" [style.height.px]="39" class="cable-svg"
+  <svg [style.width.px]="39" [style.height.px]="39" class="cable-svg" width="39" height="39"
     [style.transform]="'rotate(' + currentRotation() + 'deg)'" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Pines metálicos finos -->
     @if (!isConnected()) {

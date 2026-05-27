@@ -6,7 +6,7 @@
 
     <button class="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500" (click)="toggleMenu()"
       [attr.aria-expanded]="isMenuOpen()" aria-controls="nav-menu" aria-label="Toggle navigation">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
         @if (isMenuOpen()) {
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         } @else {
@@ -17,8 +17,10 @@
 
     <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
       <li><a (click)="scrollToTop()"
-          class="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home') }}</a></li>
-      <li><a (click)="scrollToSection('contact')" class="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+          class="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+          i18n.t('nav.home') }}</a></li>
+      <li><a (click)="scrollToSection('contact')"
+          class="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
           i18n.t('nav.contact') }}</a></li>
       <li class="relative flex items-center" (mouseenter)="isHoveringProjects.set(true)"
         (mouseleave)="isHoveringProjects.set(false)">
@@ -44,13 +46,16 @@
 @if (isMenuOpen()) {
 <div class="fixed inset-0 z-30 bg-black/10 dark:bg-black/40 backdrop-blur-[2px] md:hidden" (click)="closeMenu()"></div>
 
-<div class="fixed top-[5.5rem] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl md:hidden">
+<div
+  class="fixed top-[5.5rem] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl md:hidden">
   <ul class="px-4 py-3 space-y-1">
     <li><a (click)="scrollToTop(); closeMenu()"
-        class="cursor-pointer block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.home')
+        class="cursor-pointer block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+        i18n.t('nav.home')
         }}</a></li>
     <li><a (click)="scrollToSection('contact'); closeMenu()"
-        class="cursor-pointer block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{ i18n.t('nav.contact')
+        class="cursor-pointer block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-500 font-medium">{{
+        i18n.t('nav.contact')
         }}</a></li>
     <li class="relative" title="coming soon :)">
       <span class="block py-2 text-gray-400 dark:text-gray-600 cursor-not-allowed font-medium select-none">
@@ -61,13 +66,13 @@
   <div class="px-4 pb-4 flex gap-2">
     <app-button variant="icon" (onClick)="theme.toggleTheme(); closeMenu()" class="flex-1" [isFullWidth]="true">
       @if (theme.isDark()) {
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
         </path>
       </svg>
       } @else {
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
       </svg>
