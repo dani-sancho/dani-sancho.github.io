@@ -28,7 +28,7 @@ The application uses [Playwright](https://playwright.dev/) for end-to-end testin
 - A fully parallelized testing environment ensures quick feedback loops.
 
 ### Component & Unit Testing
-Unit tests are configured using [Vitest](https://vitest.dev/), a fast and modern testing framework. Angular's testing utilities are used to verify that individual components render and behave as expected in isolation.
+Unit tests are configured using [Karma](https://karma-runner.github.io/), Angular's default test runner, providing robust testing capabilities. Angular's testing utilities are used to verify that individual components render and behave as expected in isolation.
 - You can find `.spec.ts` files alongside each component (e.g., `footer.component.spec.ts`).
 - Run tests using `npm run test` or `ng test`.
 
@@ -36,7 +36,7 @@ Unit tests are configured using [Vitest](https://vitest.dev/), a fast and modern
 - **Framework:** Angular 
 - **Language:** TypeScript
 - **Styling:** SCSS, custom design system, focus on accessibility and responsiveness.
-- **Testing:** Playwright (E2E), Vitest (Unit/Component)
+- **Testing:** Playwright (E2E), Karma (Unit/Component)
 - **Deployment:** GitHub Pages
 
 Thank you for visiting my repository! If you have any questions or want to get in touch, feel free to reach out via LinkedIn or Email as linked in the portfolio.

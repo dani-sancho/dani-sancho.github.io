@@ -3,7 +3,7 @@
   <section class="mb-16 min-h-[40vh] flex items-center">
     <div class="grid md:grid-cols-2 gap-10 items-center w-full">
       <!-- Left: Photo + Text -->
-      <div class="order-2 md:order-1">        
+      <div class="order-2 md:order-1">
         <div class="relative group mb-6 lg:hidden mx-auto">
           <div
             class="mx-auto absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-50 transition-opacity duration-500"
@@ -33,10 +33,12 @@
                 name }}</h1>
             </div>
           </div>
-          <h2 class="text-lg md:text-xl font-semibold text-gray-600 dark:text-gray-300 mb-3">{{ i18n.t('profile.role') }}
+          <h2 class="text-lg md:text-xl font-semibold text-gray-600 dark:text-gray-300 mb-3">{{ i18n.t('profile.role')
+            }}
           </h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 leading-relaxed" [innerHTML]="i18n.t('profile.tagline')">
-            </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 leading-relaxed"
+            [innerHTML]="i18n.t('profile.tagline')">
+          </p>
         </div>
 
         <div class="flex flex-wrap gap-3 lg:justify-start justify-center">
@@ -139,7 +141,8 @@
       @for (entry of skills | keyvalue; track entry.key) {
       <div
         class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 hover:shadow-lg transition-all hover:-translate-y-1 cursor-default">
-        <h3 class="text-sm font-semibold text-indigo-500 uppercase tracking-wider mb-3">{{ i18n.t(('skills.' + entry.key + '.title')) }}</h3>
+        <h3 class="text-sm font-semibold text-indigo-500 uppercase tracking-wider mb-3">{{ i18n.t(('skills.' + entry.key
+          + '.title')) }}</h3>
         <div class="flex flex-wrap gap-2">
           @for (skill of entry.value; track skill) {
           <app-skill-chip [label]="skill" size="sm"></app-skill-chip>
@@ -156,7 +159,7 @@
       class="text-2xl font-bold text-gray-900 dark:text-white mb-6 relative inline-block after:absolute after:bottom-[-8px] after:left-0 after:w-10 after:h-1 after:bg-indigo-500 after:rounded">
       {{ i18n.t('education.title') }}</h2>
     <div class="space-y-4">
-      @for (edu of education; track edu.institution) {
+      @for (edu of education; track $index) {
       <div
         class="p-5 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 hover:shadow-lg transition-all hover:-translate-y-1">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ edu.degree }}</h3>
